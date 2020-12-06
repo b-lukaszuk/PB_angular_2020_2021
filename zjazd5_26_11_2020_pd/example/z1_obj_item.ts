@@ -7,10 +7,10 @@ class Item {
 	this.amount = amount
     }
 
-    public getName() {
+    public getName(): string {
 	return this.name;
     }
-    public getAmount() {
+    public getAmount(): number {
 	return this.amount;
     }
 }
