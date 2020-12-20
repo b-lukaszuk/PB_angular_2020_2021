@@ -1,0 +1,38 @@
+<div>
+    <br>
+    <hr/>
+    <h2>task4</h2>
+    <h3>People in the Room, v3</h3>
+    <h4>(and their preferences)</h4>
+    <br>
+    <p>Max number: {{maxOccup}} </p>
+    <p [ngStyle]="{'color': getColor()}">Current number: {{curOccup}} </p>
+    <label for="persToAdd">Name: </label>
+    <input name="persToAdd" type="text"
+	   [(ngModel)]="persToAdd"/>
+    <label for="interests"> Interests: </label>
+    <select name="interests" id="interests"
+	    [(ngModel)]="choosenInterest">
+	<option [ngValue]="intr" *ngFor="let intr of interests; index as i" >
+	    {{intr}}
+	</option>
+    </select>
+    <button type="button" (click)="addPerson()">
+	Add
+    </button>
+    <h4>Currently in the room are:</h4>
+    <button type="button" (click)="remAllPeople()">
+	Ask them all to leave
+    </button>
+    <ol>
+	<li *ngFor="let person of people">
+	    {{person[1]}} likes {{person[2]}} 
+	    <button type="button" (click)="remPerson(person[0])">
+		ask to leave
+	    </button>
+	    <button type="button" (click)="editName(person[0])">
+		edit name
+	    </button>
+	</li>
+    </ol>
+<div>
