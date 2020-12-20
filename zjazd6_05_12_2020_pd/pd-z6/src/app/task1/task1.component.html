@@ -1,0 +1,16 @@
+<div>
+    <hr/>
+    <h2>task1</h2>
+    <h3>Nice Guy at the Gate</h3>
+    <form>
+	<label for="fname">First name:</label><br>
+	<input [(ngModel)]="fname"
+	       type="text" id="fname" name="fname"><br>
+	<label for="lname">Last name:</label><br>
+	<input [(ngModel)]="lname"
+	  type="text" id="lname" name="lname"><br>
+	<br>
+	<input type="submit" value="Greet" (click)="greet()">
+	<input type="submit" value="Bye Bye" (click)="bye()">
+    </form>
+<div>
