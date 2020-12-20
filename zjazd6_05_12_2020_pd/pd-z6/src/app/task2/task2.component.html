@@ -1,0 +1,24 @@
+<div>
+    <br>
+    <hr/>
+    <h2>task2</h2>
+    <h3>People in the Room</h3>
+    <br>
+    <p>Max number: {{maxOccup}} </p>
+    <p [ngStyle]="{'color': getColor()}">Current number: {{curOccup}} </p>
+    <table>
+	<tr>
+	    <td align="center">
+		<p>Someone entered the room</p>
+		<button type="button" (click)="addPerson()">+1</button>
+	    </td>
+	    <td>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+	    </td>
+	    <td align="center">
+		<p>Someone left the room</p>
+		<button type="button" (click)="rmPerson()">-1</button>
+	    </td>
+	</tr>
+    </table>
+<div>
