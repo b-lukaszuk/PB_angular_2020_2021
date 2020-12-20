@@ -1,0 +1,26 @@
+<div>
+    <br>
+    <hr/>
+    <h2>task3</h2>
+    <h3>People in the Room, v2</h3>
+    <br>
+    <p>Max number: {{maxOccup}} </p>
+    <p [ngStyle]="{'color': getColor()}">Current number: {{curOccup}} </p>
+    <input name="persToAdd" type="text"
+	   [(ngModel)]="persToAdd"/>
+    <button type="button" (click)="addPerson()">
+	Add
+    </button>
+    <h4>Currently in the room are:</h4>
+    <button type="button" (click)="remAllPeople()">
+	Ask them all to leave
+    </button>
+    <ol>
+        <li *ngFor="let person of people">
+	    {{person[1]}} 
+	    <button type="button" (click)="remPerson(person[0])">
+		ask to leave
+	    </button>
+	</li>
+    </ol>
+<div>

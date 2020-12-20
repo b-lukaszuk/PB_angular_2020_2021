@@ -5,7 +5,6 @@ import {Component} from '@angular/core';
     templateUrl: './task1.component.html'
 })
 export class Task1Component {
-    public nazwa: string = "hejka";
     public fname: string = "";
     public lname: string = "";
     public greet() {
