@@ -17,7 +17,7 @@
     </button> <br> <br>
     <ul> <!-- ul zamiast ol na prosbe prowadzacego -->
         <li *ngFor="let person of people; let index = index">
-	    {{index+1}}. {{person}} 
+	    {{index+1}}. {{person}}
 	    <button type="button" (click)="remPerson(index)">
 		ask to leave
 	    </button>

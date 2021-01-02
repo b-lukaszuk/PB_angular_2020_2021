@@ -14,13 +14,17 @@ export class Task3Component {
 	if (this.people.length === this.maxOccup) {
 	    alert("Max occupancy has been reached. No more space left");
 	} else if (
-	    // prosty test na wejsciu
+	    // prosty test na wejsciu (wymagane zapobieganie empty rows)
 	    // imie osoby musi zawierac znaki a-z lub A-Z
-	    // i nie moze zawierac cyfr
+	    // i nie moze zawierac cyfr,
+	    // nie chce mi sie rozszerzac tego na pozostale znaki
 	    !/[a-zA-Z]/.test(this.persToAdd) ||
 	    /[0-9]/.test(this.persToAdd)
 		  ) {
-	    alert("please enter a name of a person in the correct form");
+	    alert("please enter a name of a person" +
+		"in the correct form, i.e.\n" +
+		"latin letters, no digits"
+		);
 	} else {
 	    this.people.push(this.persToAdd);
 	}
