@@ -6,49 +6,46 @@ import {Component} from '@angular/core';
 })
 export class Task3Component {
     public maxOccup: number = 5;
-    public curOccup: number = 0;
-    public warnColor: string = "";
-    public people: Array<[number, string]>= [];
+    public warnColor: string = "black";
+    public people: Array<string>= [];
     public persToAdd: string = "";
 
-    private updteOccupancy(): void {
-	this.curOccup = this.people.length;
-    }
-
     public addPerson(): void {
-	if (this.curOccup === this.maxOccup) {
+	if (this.people.length === this.maxOccup) {
 	    alert("Max occupancy has been reached. No more space left");
-	} else if (!/[a-zA-Z]/.test(this.persToAdd)) {
-	    alert("please enter the name of a person");
+	} else if (
+	    // prosty test na wejsciu
+	    // imie osoby musi zawierac znaki a-z lub A-Z
+	    // i nie moze zawierac cyfr
+	    !/[a-zA-Z]/.test(this.persToAdd) ||
+	    /[0-9]/.test(this.persToAdd)
+		  ) {
+	    alert("please enter a name of a person in the correct form");
 	} else {
-	    this.people.push(
-		[this.people.length,
-		 this.persToAdd]
-	    );
+	    this.people.push(this.persToAdd);
 	}
 	this.persToAdd = "";
-	this.updteOccupancy();
+	this.updateWarnColor();
     };
 
     public remPerson(id: number): void {
-	this.people = this.people.filter((p) => p[0] !== id);
-	this.updteOccupancy();
+	this.people.splice(id, 1); // array.splice() - zmiana inplace
+	this.updateWarnColor();
     };
 
     public remAllPeople(): void {
 	this.people = [];
-	this.updteOccupancy();
+	this.updateWarnColor();
     }
 
-    public getColor(): string {
-	if (this.curOccup === this.maxOccup) {
+    private updateWarnColor(): void {
+	if (this.people.length === this.maxOccup) {
 	    this.warnColor = "red";
-	} else if (this.curOccup >= (this.maxOccup - 3)) {
+	} else if (this.people.length >= (this.maxOccup - 3)) {
 	    this.warnColor = "orange";
 	} else {
 	    this.warnColor = "black";
 	}
-	return this.warnColor;
     }
 }
 

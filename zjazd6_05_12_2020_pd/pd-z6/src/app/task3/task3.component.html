@@ -5,7 +5,7 @@
     <h3>People in the Room, v2</h3>
     <br>
     <p>Max number: {{maxOccup}} </p>
-    <p [ngStyle]="{'color': getColor()}">Current number: {{curOccup}} </p>
+    <p [ngStyle]="{color: warnColor}">Current number: {{people.length}} </p>
     <input name="persToAdd" type="text"
 	   [(ngModel)]="persToAdd"/>
     <button type="button" (click)="addPerson()">
@@ -14,13 +14,13 @@
     <h4>Currently in the room are:</h4>
     <button type="button" (click)="remAllPeople()">
 	Ask them all to leave
-    </button>
-    <ol>
-        <li *ngFor="let person of people">
-	    {{person[1]}} 
-	    <button type="button" (click)="remPerson(person[0])">
+    </button> <br> <br>
+    <ul> <!-- ul zamiast ol na prosbe prowadzacego -->
+        <li *ngFor="let person of people; let index = index">
+	    {{index+1}}. {{person}} 
+	    <button type="button" (click)="remPerson(index)">
 		ask to leave
 	    </button>
 	</li>
-    </ol>
+    </ul>
 <div>
