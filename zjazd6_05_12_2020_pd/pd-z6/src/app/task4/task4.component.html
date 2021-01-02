@@ -1,38 +1,61 @@
 <div>
+  <div class="edit_person_banner" [ngStyle]="{display: persEdBanDispl}">
+    <h2>edit a person data</h2>
+    You are editing a person named: {{editedPerson.getName()}}
     <br>
+    that likes: {{editedPerson.getInterests()}}
     <hr/>
-    <h2>task4</h2>
-    <h3>People in the Room, v3</h3>
-    <h4>(and their preferences)</h4>
-    <br>
-    <p>Max number: {{maxOccup}} </p>
-    <p [ngStyle]="{'color': getColor()}">Current number: {{curOccup}} </p>
-    <label for="persToAdd">Name: </label>
-    <input name="persToAdd" type="text"
-	   [(ngModel)]="persToAdd"/>
+    <label for="persNameToAdd">New name: </label>
+    <input name="persNameToAdd" type="text"
+	   [(ngModel)]="persNameToAdd"/>
     <label for="interests"> Interests: </label>
     <select name="interests" id="interests"
 	    [(ngModel)]="choosenInterest">
-	<option [ngValue]="intr" *ngFor="let intr of interests; index as i" >
-	    {{intr}}
-	</option>
+      <option [ngValue]="intr" *ngFor="let intr of interests" >
+	{{intr}}
+      </option>
     </select>
-    <button type="button" (click)="addPerson()">
-	Add
+    &nbsp;
+    <button type="button" (click)="changePersonData(editedPersonId)">
+      Change
     </button>
-    <h4>Currently in the room are:</h4>
-    <button type="button" (click)="remAllPeople()">
-	Ask them all to leave
-    </button>
-    <ol>
-	<li *ngFor="let person of people">
-	    {{person[1]}} likes {{person[2]}} 
-	    <button type="button" (click)="remPerson(person[0])">
-		ask to leave
-	    </button>
-	    <button type="button" (click)="editName(person[0])">
-		edit name
-	    </button>
-	</li>
-    </ol>
-<div>
+    
+  </div>
+
+  <hr/>
+  <h2>task4</h2>
+  <h3>People in the Room, v3</h3>
+  <h4>(and their preferences)</h4>
+  <br>
+  <p>Max number: {{maxOccup}} </p>
+  <p [ngStyle]="{color: warnColor}">Current number: {{people.length}} </p>
+  <label for="persNameToAdd">Name: </label>
+  <input name="persNameToAdd" type="text"
+	 [(ngModel)]="persNameToAdd"/>
+  <label for="interests"> Interests: </label>
+  <select name="interests" id="interests"
+	  [(ngModel)]="choosenInterest">
+    <option [ngValue]="intr" *ngFor="let intr of interests" >
+      {{intr}}
+    </option>
+  </select>
+  &nbsp;
+  <button type="button" (click)="addPerson()">
+    Add
+  </button>
+  <h4>Currently in the room are:</h4>
+  <button type="button" (click)="remAllPeople()">
+    Ask them all to leave
+  </button> <br> <br>
+  <ul> <!-- ul zamiast ol na prosbe prowadzacego -->
+    <li *ngFor="let person of people; let index = index">
+      {{index+1}}. {{person.getName()}} likes {{person.getInterests()}} 
+      <button type="button" (click)="remPerson(index)">
+	ask to leave
+      </button> &nbsp;
+      <button type="button" (click)="enableDataEdition(index)">
+	edit data
+      </button>
+    </li>
+  </ul>
+  <div>
