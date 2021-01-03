@@ -7,7 +7,7 @@ class Person {
 	this.interests = interests;
     }
 
-    public getName() {
+    public getName(): string {
 	return this.name;
     }
 
@@ -15,7 +15,7 @@ class Person {
 	this.name = name;
     }
 
-    public getInterests() {
+    public getInterests(): string {
 	return this.interests;
     }
 

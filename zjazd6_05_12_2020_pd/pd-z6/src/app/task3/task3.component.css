@@ -1,0 +1,6 @@
+/* lista ul bez punkcikow i wciec */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,29 @@
+/* lista ul bez punkcikow i wciec */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* baner edycji osoby do task4 (na cala strone html) */
+.edit_person_banner {
+
+    /* chowa wszystko poza danym div-em  */
+    overflow: hidden;
+
+    /* positioned relative to the viewport */
+    position: fixed;
+
+    /* zakrycie calej strony */
+    padding:0;
+    margin:0;
+
+    top:0; /* zacznij od samej gory */
+    left:0; /* zacznij od razu od lewej */
+
+    width: 100%; /* pokryj cala szerokosc */
+    height: 100%; /* pokryj cala wysokosc */
+
+    border: 3px solid gray;
+    background-color: lightblue;
+}

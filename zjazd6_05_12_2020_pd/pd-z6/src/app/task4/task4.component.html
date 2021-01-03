@@ -1,28 +1,28 @@
 <div>
   <div class="edit_person_banner" [ngStyle]="{display: persEdBanDispl}">
-    <h2>edit a person data</h2>
-    You are editing a person named: {{editedPerson.getName()}}
-    <br>
-    that likes: {{editedPerson.getInterests()}}
-    <hr/>
+    <h2>editing data of a person</h2>
+    <p>
+      You are editing a person named: {{editedPerson.getName()}}
+    </p>
+    <p>
+      that likes: {{editedPerson.getInterests()}}
+    </p>
+    <hr />
     <label for="persNameToAdd">New name: </label>
-    <input name="persNameToAdd" type="text"
-	   [(ngModel)]="persNameToAdd"/>
+    <input name="persNameToAdd" type="text" [(ngModel)]="persNameToAdd" />
     <label for="interests"> Interests: </label>
-    <select name="interests" id="interests"
-	    [(ngModel)]="choosenInterest">
-      <option [ngValue]="intr" *ngFor="let intr of interests" >
-	{{intr}}
+    <select name="interests" id="interests" [(ngModel)]="choosenInterest">
+      <option [ngValue]="intr" *ngFor="let intr of interests">
+        {{intr}}
       </option>
     </select>
     &nbsp;
-    <button type="button" (click)="changePersonData(editedPersonId)">
+    <button type="button" (click)="changePersonData(editedPerson)">
       Change
     </button>
-    
   </div>
 
-  <hr/>
+  <hr />
   <h2>task4</h2>
   <h3>People in the Room, v3</h3>
   <h4>(and their preferences)</h4>
@@ -30,12 +30,10 @@
   <p>Max number: {{maxOccup}} </p>
   <p [ngStyle]="{color: warnColor}">Current number: {{people.length}} </p>
   <label for="persNameToAdd">Name: </label>
-  <input name="persNameToAdd" type="text"
-	 [(ngModel)]="persNameToAdd"/>
+  <input name="persNameToAdd" type="text" [(ngModel)]="persNameToAdd" />
   <label for="interests"> Interests: </label>
-  <select name="interests" id="interests"
-	  [(ngModel)]="choosenInterest">
-    <option [ngValue]="intr" *ngFor="let intr of interests" >
+  <select name="interests" id="interests" [(ngModel)]="choosenInterest">
+    <option [ngValue]="intr" *ngFor="let intr of interests">
       {{intr}}
     </option>
   </select>
@@ -47,15 +45,19 @@
   <button type="button" (click)="remAllPeople()">
     Ask them all to leave
   </button> <br> <br>
-  <ul> <!-- ul zamiast ol na prosbe prowadzacego -->
+  <ul>
+    <!-- ul zamiast ol na prosbe prowadzacego -->
     <li *ngFor="let person of people; let index = index">
-      {{index+1}}. {{person.getName()}} likes {{person.getInterests()}} 
+      <p>
+        {{index+1}}. {{person.getName()}} likes {{person.getInterests()}}
+      </p>
       <button type="button" (click)="remPerson(index)">
-	ask to leave
+        ask to leave
       </button> &nbsp;
       <button type="button" (click)="enableDataEdition(index)">
-	edit data
+        edit data
       </button>
+      <hr width="10%" color="gold" align="left">
     </li>
   </ul>
   <div>
