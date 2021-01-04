@@ -26,7 +26,7 @@
 /zjazd6_05_12_2020_pd/*
 # except for pd-z6/
 !/zjazd6_05_12_2020_pd/pd-z6
-!/zjazd6_05_12_2020_pd/tasks.md
+!/zjazd6_05_12_2020_pd/README.md
 # ignore all in the subfolder pd-z6/
 /zjazd6_05_12_2020_pd/pd-z6/*
 # except for the subfolder src/
