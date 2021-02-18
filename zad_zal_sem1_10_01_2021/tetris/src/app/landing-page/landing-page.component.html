@@ -1,0 +1,34 @@
+<div [ngStyle]="{ display: displayMe }" class="container">
+  <div class="centered-div">
+    <h1>Hello stranger!</h1>
+    <h2>Do You have the guts to play for blood?</h2>
+    <br />
+    <p>Enter Your data below and play tetris</p>
+    <fieldset>
+      <legend>Player's Name</legend>
+      <input
+        name=""
+        maxLength="18"
+        placeholder="Enter Your Name..."
+        type="text"
+        pattern="^[a-zA-Z ,.'-]+$"
+        required
+      />
+    </fieldset>
+    <fieldset>
+      <legend>Player's email</legend>
+      <input
+        name=""
+        maxLength="18"
+        placeholder="Enter Your e-mail address..."
+        type="email"
+        pattern="^[^@]+@[^@]+\.[^@]+$"
+        required
+      />
+    </fieldset>
+    <br />
+    <button>I'm Your Huckellberry, and that's just my game!</button>
+
+    <authors-info></authors-info>
+  </div>
+</div>

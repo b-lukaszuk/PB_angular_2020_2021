@@ -1,41 +1,8 @@
 <div class="content" role="main">
-    <p>Hello world!</p>
-
-    <tetris-core #game></tetris-core>
-
-    <button (click)="game.actionStart()">Start</button>
-    <button (click)="game.actionStop()">Stop</button>
-    <button (click)="game.actionReset()">Reset</button>
-
-    <table>
-	<tr>
-            <td></td>
-            <td></td>
-            <td></td>
-	</tr>
-	<tr>
-            <td>
-		<button (click)="game.actionLeft()">&#8678;</button>
-	    </td>
-            <td>
-
-		<button (click)="game.actionRotate()">
-		    &#10226;
-		</button>
-	    </td>
-            <td>
-		<button (click)="game.actionRight()">&#8680;</button>
-	    </td>
-	</tr>
-	<tr>
-            <td></td>
-            <td>
-		<button (click)="game.actionDown()">&#8681;</button>
-	    </td>
-            <td></td>
-	</tr>
-    </table>
-
-
-
+    <landing-page [displayMe]="displayLandPage"
+		  [(playerName)]="playerName"
+		  [(playerEmail)]="playerEmail"
+    ></landing-page>
+    <br/>
+    <game-page></game-page>
 </div>

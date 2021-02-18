@@ -20,7 +20,7 @@
 # Tresc pracy domowej - UPDATE
 
 Ponizej kopiuj-wklej z [githuba](https://github.com/chrum/ng-2020/blob/master/README.md)
-Chrystiana
+Chrystiana:
 
 ---
 
