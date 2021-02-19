@@ -1,44 +1,40 @@
-<div [ngStyle]="{display: displayMe}">
+<div [ngStyle]="{ display: displayMe }">
+  <player-info [playerName]="playerName" [playerEmail]="playerEmail">
+  </player-info>
 
-    <player-info
-	[playerName]="playerName"
-	[playerEmail]="playerEmail">
-    </player-info>
+  <button (click)="exitGameButton(true)">Exit the game</button>
+  <br />
+  <br />
 
-    <button>Exit the game</button>
+  <tetris-core #game></tetris-core>
 
-    <tetris-core #game></tetris-core>
+  <button (click)="game.actionStart()">Start</button>
+  <button (click)="game.actionStop()">Stop</button>
+  <button (click)="game.actionReset()">Reset</button>
 
-    <button (click)="game.actionStart()">Start</button>
-    <button (click)="game.actionStop()">Stop</button>
-    <button (click)="game.actionReset()">Reset</button>
-
-    <table>
-	<tr>
-            <td></td>
-            <td></td>
-            <td></td>
-	</tr>
-	<tr>
-            <td>
-		<button (click)="game.actionLeft()">&#8678;</button>
-	    </td>
-            <td>
-
-		<button (click)="game.actionRotate()">
-		    &#10226;
-		</button>
-	    </td>
-            <td>
-		<button (click)="game.actionRight()">&#8680;</button>
-	    </td>
-	</tr>
-	<tr>
-            <td></td>
-            <td>
-		<button (click)="game.actionDown()">&#8681;</button>
-	    </td>
-            <td></td>
-	</tr>
-    </table>
+  <table>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <button (click)="game.actionLeft()">&#8678;</button>
+      </td>
+      <td>
+        <button (click)="game.actionRotate()">&#10226;</button>
+      </td>
+      <td>
+        <button (click)="game.actionRight()">&#8680;</button>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button (click)="game.actionDown()">&#8681;</button>
+      </td>
+      <td></td>
+    </tr>
+  </table>
 </div>

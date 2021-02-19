@@ -1,6 +1,6 @@
 enum DisplayOption {
-    Yes = "block",
-    No = "none"
+    Yes = 'block',
+    No = 'none',
 }
 
 export { DisplayOption };

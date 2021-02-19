@@ -1,14 +1,14 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { DisplayOption } from '../enums/DisplayOptions'
+import { DisplayOption } from '../enums/DisplayOptions';
 
 @Component({
     selector: 'landing-page',
     templateUrl: './landing-page.component.html',
-    styleUrls: ['./landing-page.component.css']
+    styleUrls: ['./landing-page.component.css'],
 })
 export class LandingPageComponent implements OnInit {
-    constructor() { };
+    constructor() { }
 
     // czy wyswietlic dany komponent
     @Input() displayMe: DisplayOption;
@@ -16,8 +16,8 @@ export class LandingPageComponent implements OnInit {
     @Output() clicked = new EventEmitter<Object>();
 
     // dane uzytkownika
-    public playerName: string = "";
-    public playerEmail: string = "";
+    public playerName: string = '';
+    public playerEmail: string = '';
 
     private isNameOk(name: string) {
         return name.trim().match(/^[a-zA-Z ,.'-]+$/);
@@ -28,22 +28,20 @@ export class LandingPageComponent implements OnInit {
     }
 
     public enterGameButton(agreed: boolean) {
-        if (!this.isNameOk(this.playerName)) {
-            alert("please enter correct player name")
+        if (!this.isNameOk(this.playerName) && !this.isEmailOk(this.playerEmail)) {
+            alert('please enter correct player data, i.e. name and email');
+        } else if (!this.isNameOk(this.playerName)) {
+            alert('please enter correct player name');
         } else if (!this.isEmailOk(this.playerEmail)) {
-            alert("please enter valid email")
+            alert('please enter valid email');
         } else {
             this.clicked.emit({
                 agreed: agreed,
                 playerName: this.playerName,
-                playerEmail: this.playerEmail
+                playerEmail: this.playerEmail,
             });
         }
     }
 
-
-
-    ngOnInit(): void {
-    }
-
+    ngOnInit(): void { }
 }

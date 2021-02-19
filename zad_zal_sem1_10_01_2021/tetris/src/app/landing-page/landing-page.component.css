@@ -1,5 +1,5 @@
 button {
-  background-color: #008cba; /* blue */
+  background-color: #3584d4; /* blue */
   border: none;
   color: white;
   padding: 0.4em 0.8em;
@@ -13,7 +13,7 @@ button {
 
 button:hover {
   cursor: pointer;
-  background-color: #3584e4; /* different blue */
+  background-color: #3584ff; /* different blue */
 }
 
 legend {
