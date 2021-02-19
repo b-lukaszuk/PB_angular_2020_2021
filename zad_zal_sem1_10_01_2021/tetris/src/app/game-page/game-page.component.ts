@@ -42,16 +42,21 @@ export class GamePageComponent implements OnInit {
     public startGame() {
         this._tetris.actionStart()
         this.gameStatusDesc = "started";
+        this.startTimer();
     }
 
     public stopGame() {
         this._tetris.actionStop()
         this.gameStatusDesc = "paused";
+        this.stopTimer();
     }
 
     public resetGame() {
         this._tetris.actionReset()
         this.gameStatusDesc = "ready";
+        this.stopTimer();
+        this.seconds = 0;
+        this.time = this.secsToMins(this.seconds);
     }
 
     public drukujStatus() {
@@ -64,6 +69,36 @@ export class GamePageComponent implements OnInit {
         console.log("line cleared");
         this.points += 100;
     }
+
+
+    // timery za:
+    // https://www.tutorialrepublic.com/javascript-tutorial/javascript-timers.php
+
+    // time in seconds
+    public seconds: number = 0;
+    public time: string = this.secsToMins(this.seconds);
+
+    public secsToMins(seconds: number): string {
+        let mins: number = Math.floor(seconds / 60);
+        let secs: number = seconds % 60;
+        return mins.toString().padStart(2, "0") + ":" +
+            secs.toString().padStart(2, "0");
+    }
+
+    // id timera, aby go zatrzymywac i uruchamiac
+    public timeoutId;
+
+    public startTimer() {
+        this.timeoutId = setInterval(() => {
+            this.seconds += 1;
+            this.time = this.secsToMins(this.seconds)
+        }, 1000);
+    }
+
+    public stopTimer() {
+        clearTimeout(this.timeoutId);
+    }
+
 
     ngOnInit(): void {
         // setInterval(this.drukujStatus, 500);
