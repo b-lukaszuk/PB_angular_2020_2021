@@ -22,6 +22,7 @@ export class GamePageComponent implements OnInit {
     private _tetris: TetrisCoreComponent;
 
     public gameStatusDesc: string = "ready";
+    public points: number = 0;
 
     public exitGameButton(agreed: boolean) {
         this._tetris.actionStop();
@@ -35,7 +36,6 @@ export class GamePageComponent implements OnInit {
 
 
     public zobacz() {
-        console.log(this._tetris);
         console.log(this._tetris.state);
     }
 
@@ -54,6 +54,18 @@ export class GamePageComponent implements OnInit {
         this.gameStatusDesc = "ready";
     }
 
+    public drukujStatus() {
+        setInterval(() => {
+            console.log(this._tetris.state)
+        }, 1)
+    };
 
-    ngOnInit(): void { }
+    public onLineCleared() {
+        console.log("line cleared");
+        this.points += 100;
+    }
+
+    ngOnInit(): void {
+        // setInterval(this.drukujStatus, 500);
+    }
 }

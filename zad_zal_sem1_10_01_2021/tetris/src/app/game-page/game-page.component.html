@@ -2,6 +2,8 @@
   <player-info [playerName]="playerName" [playerEmail]="playerEmail">
   </player-info>
 
+  <p>Score: {{points}}</p>
+
   <button (click)="exitGameButton(true)">Exit the game</button>
   <br />
   <br />
@@ -11,11 +13,11 @@
   &nbsp;
   <button (click)="resetGame()">Reset</button>
   &nbsp;
-  <button (click)="zobacz()">Zobacz</button>
+  <button (click)="drukujStatus()">Zobacz</button>
 
-  <h2>Game status: {{gameStatusDesc}}</h2>
+  <!-- <p>Game status: {{gameStatusDesc}}</p> -->
 
-  <tetris-core #game></tetris-core>
+  <tetris-core #game (lineCleared)="onLineCleared()"></tetris-core>
 
 
   <table>
