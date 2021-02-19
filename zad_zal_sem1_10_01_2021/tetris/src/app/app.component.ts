@@ -11,11 +11,23 @@ export class AppComponent {
     title = 'tetris';
 
     public displayLandPage: DisplayOption = DisplayOption.Yes;
-    public playerName: string = "";
-    public playerEmail: string = "";
+    public displayGamePage: DisplayOption = DisplayOption.No;
+    public playerName: string = "a";
+    public playerEmail: string = "a@a.a";
 
-    public gotoGame() {
-        this.displayLandPage = DisplayOption.No;
+    // togluje wysw landPage i gamePage
+    // agreed: true, wysw landPage
+    // agreed: false, wysw gamePage 
+    public toggleToLandPage(clicked) {
+        if (clicked.agreed) {
+            this.displayLandPage = DisplayOption.No;
+            this.displayGamePage = DisplayOption.Yes;
+            this.playerName = clicked.playerName;
+            this.playerEmail = clicked.playerEmail;
+        } else {
+            this.displayLandPage = DisplayOption.Yes;
+            this.displayGamePage = DisplayOption.No;
+        }
     }
 
 }

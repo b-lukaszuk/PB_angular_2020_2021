@@ -1,9 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
-enum DisplayOption {
-    Yes = "block",
-    No = "none"
-};
+import { DisplayOption } from '../enums/DisplayOptions'
 
 @Component({
     selector: 'game-page',
@@ -14,7 +11,8 @@ export class GamePageComponent implements OnInit {
 
     constructor() { }
 
-    public displayMe: DisplayOption = DisplayOption.Yes;
+    // czy wyswietlic dany komponent
+    @Input() displayMe: DisplayOption;
 
     ngOnInit(): void {
     }

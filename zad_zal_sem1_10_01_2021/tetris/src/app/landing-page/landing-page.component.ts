@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { DisplayOption } from '../enums/DisplayOptions'
 
@@ -8,12 +8,39 @@ import { DisplayOption } from '../enums/DisplayOptions'
     styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent implements OnInit {
+    constructor() { };
+
     // czy wyswietlic dany komponent
     @Input() displayMe: DisplayOption;
-    @Input() playerName: string;
-    @Input() playerEmail: string;
 
-    constructor() { }
+    @Output() clicked = new EventEmitter<Object>();
+
+    // dane uzytkownika
+    public playerName: string = "";
+    public playerEmail: string = "";
+
+    private isNameOk(name: string) {
+        return name.trim().match(/^[a-zA-Z ,.'-]+$/);
+    }
+
+    private isEmailOk(email: string) {
+        return email.trim().match(/^[^@]+@[^@]+\.[^@]+$/);
+    }
+
+    public enterGameButton(agreed: boolean) {
+        if (!this.isNameOk(this.playerName)) {
+            alert("please enter correct player name")
+        } else if (!this.isEmailOk(this.playerEmail)) {
+            alert("please enter valid email")
+        } else {
+            this.clicked.emit({
+                agreed: agreed,
+                playerName: this.playerName,
+                playerEmail: this.playerEmail
+            });
+        }
+    }
+
 
 
     ngOnInit(): void {
