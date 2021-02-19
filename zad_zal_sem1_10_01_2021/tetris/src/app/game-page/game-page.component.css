@@ -1,0 +1,17 @@
+button {
+  background-color: #3584d4; /* blue */
+  border: none;
+  color: white;
+  padding: 0.4em 0.8em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  /* font-size: 1.5em; */
+  font-weight: bold;
+  border-radius: 0.4em;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #3584ff; /* different blue */
+}

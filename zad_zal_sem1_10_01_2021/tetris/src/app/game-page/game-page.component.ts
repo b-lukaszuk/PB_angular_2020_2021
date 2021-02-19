@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { TetrisCoreComponent } from "ngx-tetris";
 
 import { DisplayOption } from '../enums/DisplayOptions';
 
@@ -16,13 +17,43 @@ export class GamePageComponent implements OnInit {
 
     @Output() clicked = new EventEmitter<Object>();
 
+    // podgladanie stanu tetrisag
+    @ViewChild(TetrisCoreComponent)
+    private _tetris: TetrisCoreComponent;
+
+    public gameStatusDesc: string = "ready";
+
     public exitGameButton(agreed: boolean) {
+        this._tetris.actionStop();
+        this._tetris.actionReset();
         this.clicked.emit({
             agreed: !agreed, // funkcj w app.ts oczekuje false-a
             playerName: '',
             playerEmail: '',
         });
+    };
+
+
+    public zobacz() {
+        console.log(this._tetris);
+        console.log(this._tetris.state);
     }
+
+    public startGame() {
+        this._tetris.actionStart()
+        this.gameStatusDesc = "started";
+    }
+
+    public stopGame() {
+        this._tetris.actionStop()
+        this.gameStatusDesc = "paused";
+    }
+
+    public resetGame() {
+        this._tetris.actionReset()
+        this.gameStatusDesc = "ready";
+    }
+
 
     ngOnInit(): void { }
 }

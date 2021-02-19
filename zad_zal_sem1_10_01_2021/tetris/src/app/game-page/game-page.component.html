@@ -5,12 +5,18 @@
   <button (click)="exitGameButton(true)">Exit the game</button>
   <br />
   <br />
+  <button (click)="startGame()">Start</button>
+  &nbsp;
+  <button (click)="stopGame()">Stop</button>
+  &nbsp;
+  <button (click)="resetGame()">Reset</button>
+  &nbsp;
+  <button (click)="zobacz()">Zobacz</button>
+
+  <h2>Game status: {{gameStatusDesc}}</h2>
 
   <tetris-core #game></tetris-core>
 
-  <button (click)="game.actionStart()">Start</button>
-  <button (click)="game.actionStop()">Stop</button>
-  <button (click)="game.actionReset()">Reset</button>
 
   <table>
     <tr>
