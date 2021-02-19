@@ -10,6 +10,8 @@ import { DisplayOption } from '../enums/DisplayOptions'
 export class GamePageComponent implements OnInit {
 
     constructor() { }
+    @Input() playerName: string;
+    @Input() playerEmail: string;
 
     // czy wyswietlic dany komponent
     @Input() displayMe: DisplayOption;

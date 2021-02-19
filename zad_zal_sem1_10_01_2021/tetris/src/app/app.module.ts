@@ -9,13 +9,15 @@ import { TetrisCoreModule } from 'ngx-tetris';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { GamePageComponent } from './game-page/game-page.component';
 import { AuthorsInfoComponent } from './authors-info/authors-info.component';
+import { PlayerInfoComponent } from './game-page/player-info/player-info.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         LandingPageComponent,
         GamePageComponent,
-        AuthorsInfoComponent
+        AuthorsInfoComponent,
+        PlayerInfoComponent
     ],
     imports: [
         BrowserModule,

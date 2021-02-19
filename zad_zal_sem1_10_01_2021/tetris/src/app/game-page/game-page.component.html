@@ -1,4 +1,12 @@
 <div [ngStyle]="{display: displayMe}">
+
+    <player-info
+	[playerName]="playerName"
+	[playerEmail]="playerEmail">
+    </player-info>
+
+    <button>Exit the game</button>
+
     <tetris-core #game></tetris-core>
 
     <button (click)="game.actionStart()">Start</button>

@@ -12,6 +12,8 @@ export class AppComponent {
 
     public displayLandPage: DisplayOption = DisplayOption.Yes;
     public displayGamePage: DisplayOption = DisplayOption.No;
+    // public displayLandPage: DisplayOption = DisplayOption.No;
+    // public displayGamePage: DisplayOption = DisplayOption.Yes;
     public playerName: string = "a";
     public playerEmail: string = "a@a.a";
 

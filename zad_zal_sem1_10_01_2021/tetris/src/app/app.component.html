@@ -3,6 +3,9 @@
 		  (clicked)="toggleToLandPage($event)"
     ></landing-page>
     <br/>
-    <game-page [displayMe]="displayGamePage">
+    <game-page [displayMe]="displayGamePage"
+	       [playerName]="playerName"
+	       [playerEmail]="playerEmail"
+    >
     </game-page>
 </div>
