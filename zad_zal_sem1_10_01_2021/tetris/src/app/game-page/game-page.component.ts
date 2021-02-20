@@ -10,6 +10,7 @@ import { TetrisCoreComponent } from 'ngx-tetris';
 
 import { DisplayOption } from '../enums/DisplayOptions';
 import { HistoryItem } from './historyItem/historyItem';
+import { HistoryFilterPipe } from './history-filter.pipe';
 
 @Component({
     selector: 'game-page',
@@ -32,6 +33,15 @@ export class GamePageComponent implements OnInit {
     public previousGameStatus: string = '';
     public gameStatusDesc: string = 'ready';
     public points: number = 0;
+    // wybrany filter z historii
+    public hItemSelect = 'all';
+
+    public allowedHistoryEntries: Array<string> = [
+        'all',
+        'started',
+        'paused',
+        'line cleared',
+    ];
 
     public exitGameButton(agreed: boolean) {
         this.resetGame();

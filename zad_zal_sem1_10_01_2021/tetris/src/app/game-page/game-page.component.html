@@ -17,8 +17,18 @@
   <button (click)="sortByTimestamp()">{{sortingOrder}}</button>
   <p>Game status: {{gameStatusDesc}}</p>
 
+  <select name="historyItem" id="historyItems"
+	  [(ngModel)]="hItemSelect">
+      <option [ngValue]="hItem"
+	      *ngFor="let hItem of allowedHistoryEntries">
+        {{hItem}}
+      </option>
+    </select>
+
+    <h2>Game history: </h2>
   <ul>
-      <li *ngFor="let hItem of history; let index=index">
+      <li *ngFor="let hItem of history | historyFilter:hItemSelect; 
+		  let index=index">
 	  <p>
 	      {{hItem.timestamp}}&nbsp;{{hItem.actionName}}
 	  </p>
