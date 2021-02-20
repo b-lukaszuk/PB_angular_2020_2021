@@ -111,6 +111,7 @@ export class GamePageComponent implements OnInit {
         this.gameStatusDesc = 'ready';
         this.seconds = 0;
         this.time = this.secsToMins(this.seconds);
+        this.points = 0;
         // lista obiektow {timeSecs: xxx, timestamp: xxx, actionName: xxx}
         this.history = [];
     }
@@ -124,6 +125,12 @@ export class GamePageComponent implements OnInit {
                 'line cleared'
             )
         );
+    }
+
+    public onGameOver() {
+        this.stopTimer();
+        alert('Game over. Press OK to start again');
+        this.resetGame();
     }
 
     // timery za:

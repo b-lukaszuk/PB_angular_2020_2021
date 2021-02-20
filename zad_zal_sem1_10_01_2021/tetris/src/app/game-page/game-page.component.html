@@ -7,7 +7,11 @@
         <button (click)="exitGameButton(true)">Exit the game</button>
       </td>
       <td>
-        <tetris-core #game (lineCleared)="onLineCleared()"></tetris-core>
+        <tetris-core
+          #game
+          (lineCleared)="onLineCleared()"
+          (gameOver)="onGameOver()"
+        ></tetris-core>
       </td>
       <td>
         <h3>Score: {{ points }}</h3>
