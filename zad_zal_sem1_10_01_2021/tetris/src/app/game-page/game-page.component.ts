@@ -19,30 +19,52 @@ import { HistoryFilterPipe } from './history-filter.pipe';
 })
 export class GamePageComponent implements OnInit {
     constructor() { }
+    //////////////
+    // Inputy
+    //////////////
     @Input() playerName: string;
     @Input() playerEmail: string;
     // czy wyswietlic dany komponent
     @Input() displayMe: DisplayOption;
 
+    //////////////
+    // Outputy
+    //////////////
     @Output() clicked = new EventEmitter<Object>();
 
-    // podgladanie stanu tetrisag
+    //////////////
+    // Podgladanie dziecka
+    //////////////
     @ViewChild(TetrisCoreComponent)
     private _tetris: TetrisCoreComponent;
 
+    //////////////
+    // Pola w klasie (do zast ktore public, ktore private)
+    //////////////
     public previousGameStatus: string = '';
     public gameStatusDesc: string = 'ready';
     public points: number = 0;
     // wybrany filter z historii
     public hItemSelect = 'all';
-
+    // do wyswietlenia w selekcie filtru historii
     public allowedHistoryEntries: Array<string> = [
         'all',
         'started',
         'paused',
         'line cleared',
     ];
+    // time in seconds
+    public seconds: number = 0;
+    public time: string = this.secsToMins(this.seconds);
+    // id timera, aby go zatrzymywac i uruchamiac
+    public timeoutId;
+    // tablica obiektow {timestamp: xxx, actionName: xxx}
+    public history: Array<Object> = [];
+    public sortingOrder: string = 'A-Z';
 
+    //////////////
+    // Metody w kalsie (do zast ktore public, ktore private)
+    //////////////
     public exitGameButton(agreed: boolean) {
         this.resetGame();
         this.playerName = '';
@@ -106,11 +128,6 @@ export class GamePageComponent implements OnInit {
 
     // timery za:
     // https://www.tutorialrepublic.com/javascript-tutorial/javascript-timers.php
-
-    // time in seconds
-    public seconds: number = 0;
-    public time: string = this.secsToMins(this.seconds);
-
     public secsToMins(seconds: number): string {
         let mins: number = Math.floor(seconds / 60);
         let secs: number = seconds % 60;
@@ -118,9 +135,6 @@ export class GamePageComponent implements OnInit {
             mins.toString().padStart(2, '0') + ':' + secs.toString().padStart(2, '0')
         );
     }
-
-    // id timera, aby go zatrzymywac i uruchamiac
-    public timeoutId;
 
     public startTimer() {
         this.timeoutId = setInterval(() => {
@@ -132,16 +146,6 @@ export class GamePageComponent implements OnInit {
     public stopTimer() {
         clearTimeout(this.timeoutId);
     }
-
-    // tablica obiektow {timestamp: xxx, actionName: xxx}
-    public history: Array<Object> = [];
-
-    public showHistory() {
-        console.log(this.history);
-        console.log(this.history.length);
-    }
-
-    public sortingOrder: string = 'A-Z';
 
     public sortByTimestamp() {
         if (this.gameStatusDesc === 'started') {
@@ -182,6 +186,5 @@ export class GamePageComponent implements OnInit {
         this.seconds = 0;
         this.time = this.secsToMins(this.seconds);
         this.history = [];
-        console.log(this.history);
     }
 }

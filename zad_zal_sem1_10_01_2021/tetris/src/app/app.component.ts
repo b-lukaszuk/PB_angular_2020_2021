@@ -10,12 +10,12 @@ import { DisplayOption } from './enums/DisplayOptions';
 export class AppComponent {
     title = 'tetris';
 
-    // public displayLandPage: DisplayOption = DisplayOption.Yes;
-    // public displayGamePage: DisplayOption = DisplayOption.No;
-    public displayLandPage: DisplayOption = DisplayOption.No;
-    public displayGamePage: DisplayOption = DisplayOption.Yes;
-    public playerName: string = 'a';
-    public playerEmail: string = 'a@a.a';
+    public displayLandPage: DisplayOption = DisplayOption.Yes;
+    public displayGamePage: DisplayOption = DisplayOption.No;
+    // public displayLandPage: DisplayOption = DisplayOption.No;
+    // public displayGamePage: DisplayOption = DisplayOption.Yes;
+    public playerName: string = '';
+    public playerEmail: string = '';
 
     // togluje wysw landPage i gamePage
     // agreed: true, wysw landPage
