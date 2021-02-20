@@ -34,21 +34,30 @@ export class GamePageComponent implements OnInit {
         });
     };
 
-
-    public zobacz() {
-        console.log(this._tetris.state);
-    }
-
     public startGame() {
         this._tetris.actionStart()
         this.gameStatusDesc = "started";
         this.startTimer();
+        this.history = [
+            ...this.history,
+            {
+                timestamp: this.secsToMins(this.seconds),
+                actionName: this.gameStatusDesc
+            }
+        ]
     }
 
     public stopGame() {
         this._tetris.actionStop()
         this.gameStatusDesc = "paused";
         this.stopTimer();
+        this.history = [
+            ...this.history,
+            {
+                timestamp: this.secsToMins(this.seconds),
+                actionName: this.gameStatusDesc
+            }
+        ]
     }
 
     public resetGame() {
@@ -57,17 +66,18 @@ export class GamePageComponent implements OnInit {
         this.stopTimer();
         this.seconds = 0;
         this.time = this.secsToMins(this.seconds);
+        this.history = [];
     }
 
-    public drukujStatus() {
-        setInterval(() => {
-            console.log(this._tetris.state)
-        }, 1)
-    };
-
     public onLineCleared() {
-        console.log("line cleared");
         this.points += 100;
+        this.history = [
+            ...this.history,
+            {
+                timestamp: this.secsToMins(this.seconds),
+                actionName: "line cleared"
+            }
+        ]
     }
 
 
@@ -97,6 +107,14 @@ export class GamePageComponent implements OnInit {
 
     public stopTimer() {
         clearTimeout(this.timeoutId);
+    }
+
+    // tablica obiektow {timestamp: xxx, actionName: xxx}
+    public history: Array<Object> = [];
+
+    public showHistory() {
+        console.log(this.history);
+        console.log(this.history.length);
     }
 
 

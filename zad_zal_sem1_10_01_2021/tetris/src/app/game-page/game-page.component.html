@@ -14,9 +14,16 @@
   &nbsp;
   <button (click)="resetGame()">Reset</button>
   &nbsp;
-  <button (click)="drukujStatus()">Zobacz</button>
+  <button (click)="showHistory()">Show History</button>
+  <p>Game status: {{gameStatusDesc}}</p>
 
-  <!-- <p>Game status: {{gameStatusDesc}}</p> -->
+  <ul>
+      <li *ngFor="let hItem of history; let index=index">
+	  <p>
+	      {{hItem.timestamp}}&nbsp;{{hItem.actionName}}
+	  </p>
+      </li>
+  </ul>
 
   <tetris-core #game (lineCleared)="onLineCleared()"></tetris-core>
 
