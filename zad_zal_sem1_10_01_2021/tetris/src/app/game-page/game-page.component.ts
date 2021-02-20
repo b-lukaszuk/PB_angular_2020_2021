@@ -29,12 +29,14 @@ export class GamePageComponent implements OnInit {
     @ViewChild(TetrisCoreComponent)
     private _tetris: TetrisCoreComponent;
 
+    public previousGameStatus: string = '';
     public gameStatusDesc: string = 'ready';
     public points: number = 0;
 
     public exitGameButton(agreed: boolean) {
-        this._tetris.actionStop();
-        this._tetris.actionReset();
+        this.resetGame();
+        this.playerName = '';
+        this.playerEmail = '';
         this.clicked.emit({
             agreed: !agreed, // funkcj w app.ts oczekuje false-a
             playerName: '',
@@ -44,6 +46,7 @@ export class GamePageComponent implements OnInit {
 
     public startGame() {
         this._tetris.actionStart();
+        this.previousGameStatus = this.gameStatusDesc;
         this.gameStatusDesc = 'started';
         this.startTimer();
         this.addItemToHistory(
@@ -57,6 +60,7 @@ export class GamePageComponent implements OnInit {
 
     public stopGame() {
         this._tetris.actionStop();
+        this.previousGameStatus = this.gameStatusDesc;
         this.gameStatusDesc = 'paused';
         this.stopTimer();
         this.addItemToHistory(
@@ -70,8 +74,9 @@ export class GamePageComponent implements OnInit {
 
     public resetGame() {
         this._tetris.actionReset();
-        this.gameStatusDesc = 'ready';
         this.stopTimer();
+        this.previousGameStatus = this.gameStatusDesc;
+        this.gameStatusDesc = 'ready';
         this.seconds = 0;
         this.time = this.secsToMins(this.seconds);
         // lista obiektow {timeSecs: xxx, timestamp: xxx, actionName: xxx}
@@ -126,35 +131,47 @@ export class GamePageComponent implements OnInit {
         console.log(this.history.length);
     }
 
-    public sortingOrder: string = 'Sort by timestamp [10:00-00:00]';
+    public sortingOrder: string = 'A-Z';
 
     public sortByTimestamp() {
-        if (this.sortingOrder === 'Sort by timestamp [00:00-10:00]') {
+        if (this.gameStatusDesc === 'started') {
+            this.stopGame();
+            alert('Game Paused. Sort performed');
+        } else if (this.sortingOrder === 'A-Z') {
             this.history = this.history.sort(
                 (item1: HistoryItem, item2: HistoryItem) => {
                     return item1.getSecs() - item2.getSecs();
                 }
             );
-            this.sortingOrder = 'Sort by timestamp [10:00-00:00]';
+            this.sortingOrder = 'Z-A';
         } else {
-            this.sortingOrder = 'Sort by timestamp [00:00-10:00]';
             this.history = this.history.sort(
                 (item1: HistoryItem, item2: HistoryItem) => {
                     return item2.getSecs() - item1.getSecs();
                 }
             );
+            this.sortingOrder = 'A-Z';
         }
     }
 
     public addItemToHistory(item: HistoryItem) {
-        if (this.sortingOrder === 'Sort by timestamp [00:00-10:00]') {
-            this.history = [...this.history, item];
-        } else {
-            this.history = [item, ...this.history];
+        if (this.gameStatusDesc !== this.previousGameStatus) {
+            // na przycisku jest Z-A (czyli po tym dopiero bedziemy sortowac)
+            // to dajemy aktyalny sort A-Z
+            if (this.sortingOrder === 'Z-A') {
+                this.history = [...this.history, item];
+            } else {
+                this.history = [item, ...this.history];
+            }
         }
     }
 
     ngOnInit(): void {
-        // setInterval(this.drukujStatus, 500);
+        this.playerName = '';
+        this.playerEmail = '';
+        this.seconds = 0;
+        this.time = this.secsToMins(this.seconds);
+        this.history = [];
+        console.log(this.history);
     }
 }
