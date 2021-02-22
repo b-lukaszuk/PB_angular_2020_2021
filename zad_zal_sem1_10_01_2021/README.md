@@ -1,3 +1,9 @@
+# Uruchamianie
+
+```bash
+ng serve -o
+```
+
 # Tresc pracy domowej
 
 ## 10-01-2021
@@ -18,6 +24,8 @@
 > sortable by timestamp (latest first or oldest first)<br>
 
 # Tresc pracy domowej - UPDATE
+
+## 17-02-2021
 
 Ponizej kopiuj-wklej z [githuba](https://github.com/chrum/ng-2020/blob/master/README.md)
 Chrystiana:
