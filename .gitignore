@@ -7,10 +7,10 @@
 
 #################################
 ### settings for ###
-### zjazd5_26_11_2020_pd/ ###
+### sem1_zjazd5_26_11_2020_pd/ ###
 #################################
 # except for the folder
-!/zjazd5_26_11_2020_pd/
+!/sem1_zjazd5_26_11_2020_pd/
 #################################
 
 
@@ -18,26 +18,26 @@
 
 #################################
 ### settings for ###
-### zjazd6_05_12_2020_pd/ ###
+### sem1_zjazd6_05_12_2020_pd/ ###
 #################################
 # except for the folder
-!/zjazd6_05_12_2020_pd/
+!/sem1_zjazd6_05_12_2020_pd/
 # ignore all in that folder
-/zjazd6_05_12_2020_pd/*
+/sem1_zjazd6_05_12_2020_pd/*
 # except for pd-z6/
-!/zjazd6_05_12_2020_pd/pd-z6
-!/zjazd6_05_12_2020_pd/README.md
+!/sem1_zjazd6_05_12_2020_pd/pd-z6
+!/sem1_zjazd6_05_12_2020_pd/README.md
 # ignore all in the subfolder pd-z6/
-/zjazd6_05_12_2020_pd/pd-z6/*
+/sem1_zjazd6_05_12_2020_pd/pd-z6/*
 # except for the subfolder src/
-!/zjazd6_05_12_2020_pd/pd-z6/src/
+!/sem1_zjazd6_05_12_2020_pd/pd-z6/src/
 # ignore all in the src/
-/zjazd6_05_12_2020_pd/pd-z6/src/*
+/sem1_zjazd6_05_12_2020_pd/pd-z6/src/*
 # except /app
-!/zjazd6_05_12_2020_pd/pd-z6/src/app/
+!/sem1_zjazd6_05_12_2020_pd/pd-z6/src/app/
 # except for the main html and css files
-!/zjazd6_05_12_2020_pd/pd-z6/src/index.html
-!/zjazd6_05_12_2020_pd/pd-z6/src/styles.css
+!/sem1_zjazd6_05_12_2020_pd/pd-z6/src/index.html
+!/sem1_zjazd6_05_12_2020_pd/pd-z6/src/styles.css
 #################################
 
 
