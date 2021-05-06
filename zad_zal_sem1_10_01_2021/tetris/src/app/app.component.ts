@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-import { DisplayOption } from './enums/DisplayOptions';
-
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -10,10 +8,8 @@ import { DisplayOption } from './enums/DisplayOptions';
 export class AppComponent {
     title = 'tetris';
 
-    public displayLandPage: DisplayOption = DisplayOption.Yes;
-    public displayGamePage: DisplayOption = DisplayOption.No;
-    // public displayLandPage: DisplayOption = DisplayOption.No;
-    // public displayGamePage: DisplayOption = DisplayOption.Yes;
+    public displayLandPage: boolean = true;
+    public displayGamePage = !this.displayLandPage;
     public playerName: string = '';
     public playerEmail: string = '';
 
@@ -22,13 +18,13 @@ export class AppComponent {
     // agreed: false, wysw gamePage
     public toggleToLandPage(clicked) {
         if (clicked.agreed) {
-            this.displayLandPage = DisplayOption.No;
-            this.displayGamePage = DisplayOption.Yes;
+            this.displayLandPage = false;
+            this.displayGamePage = !this.displayLandPage;
             this.playerName = clicked.playerName;
             this.playerEmail = clicked.playerEmail;
         } else {
-            this.displayLandPage = DisplayOption.Yes;
-            this.displayGamePage = DisplayOption.No;
+            this.displayLandPage = true;
+            this.displayGamePage = !this.displayLandPage;
             this.playerName = clicked.playerName;
             this.playerEmail = clicked.playerEmail;
         }

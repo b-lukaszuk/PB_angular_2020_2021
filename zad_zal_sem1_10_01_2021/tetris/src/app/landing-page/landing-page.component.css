@@ -62,34 +62,6 @@ input[type="email"]:valid {
   border-left: 0.5em solid #c9fec9;
 }
 
-div.container {
-  /* chowa wszystko poza danym div-em  */
-  overflow: hidden;
-
-  /* positioned relative to the viewport */
-  position: fixed;
-
-  /* zakrycie calej strony */
-  padding: 0;
-  margin: 0;
-
-  top: 0; /* zacznij od samej gory */
-  left: 0; /* zacznij od razu od lewej */
-
-  width: 100%; /* pokryj cala szerokosc */
-  height: 100%; /* pokryj cala wysokosc */
-
-  /* border: 3px solid gray; */
-  /* background-color: lightblue; */
-}
-.container {
-  /* background: yellow; */
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .centered-div {
   width: 40%;
   margin: 0% 30% 30%;

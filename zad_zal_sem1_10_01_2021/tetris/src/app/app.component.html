@@ -1,11 +1,11 @@
 <div class="content" role="main">
   <landing-page
-    [displayMe]="displayLandPage"
+    *ngIf="displayLandPage"
     (clicked)="toggleToLandPage($event)"
   ></landing-page>
   <br />
   <game-page
-    [displayMe]="displayGamePage"
+    *ngIf="displayGamePage"
     [playerName]="playerName"
     [playerEmail]="playerEmail"
     (clicked)="toggleToLandPage($event)"

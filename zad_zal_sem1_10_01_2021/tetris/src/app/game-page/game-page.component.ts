@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import { TetrisCoreComponent } from 'ngx-tetris';
 
-import { DisplayOption } from '../enums/DisplayOptions';
 import { HistoryItem } from './historyItem/historyItem';
 import { HistoryFilterPipe } from './history-filter.pipe';
 
@@ -24,8 +23,6 @@ export class GamePageComponent implements OnInit {
     //////////////
     @Input() playerName: string;
     @Input() playerEmail: string;
-    // czy wyswietlic dany komponent
-    @Input() displayMe: DisplayOption;
 
     //////////////
     // Outputy
@@ -188,8 +185,6 @@ export class GamePageComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.playerName = '';
-        this.playerEmail = '';
         this.seconds = 0;
         this.time = this.secsToMins(this.seconds);
         this.history = [];

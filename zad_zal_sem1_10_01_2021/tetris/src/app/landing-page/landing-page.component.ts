@@ -1,7 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { DisplayOption } from '../enums/DisplayOptions';
-
 @Component({
     selector: 'landing-page',
     templateUrl: './landing-page.component.html',
@@ -9,9 +7,6 @@ import { DisplayOption } from '../enums/DisplayOptions';
 })
 export class LandingPageComponent implements OnInit {
     constructor() { }
-
-    // czy wyswietlic dany komponent
-    @Input() displayMe: DisplayOption;
 
     @Output() clicked = new EventEmitter<Object>();
 
