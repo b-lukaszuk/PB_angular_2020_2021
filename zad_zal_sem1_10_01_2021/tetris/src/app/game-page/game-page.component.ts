@@ -57,7 +57,7 @@ export class GamePageComponent implements OnInit {
     public timeoutId;
     // tablica obiektow {timestamp: xxx, actionName: xxx}
     public history: Array<Object> = [];
-    public sortingOrder: string = 'A-Z';
+    public sortAZ: boolean = false;
 
     //////////////
     // Metody w kalsie (do zast ktore public, ktore private)
@@ -155,20 +155,20 @@ export class GamePageComponent implements OnInit {
         if (this.gameStatusDesc === 'started') {
             this.stopGame();
             alert('Game Paused. Sort performed');
-        } else if (this.sortingOrder === 'A-Z') {
+        } else if (this.sortAZ) {
             this.history = this.history.sort(
                 (item1: HistoryItem, item2: HistoryItem) => {
                     return item1.getSecs() - item2.getSecs();
                 }
             );
-            this.sortingOrder = 'Z-A';
+            this.sortAZ = !this.sortAZ;
         } else {
             this.history = this.history.sort(
                 (item1: HistoryItem, item2: HistoryItem) => {
                     return item2.getSecs() - item1.getSecs();
                 }
             );
-            this.sortingOrder = 'A-Z';
+            this.sortAZ = !this.sortAZ;
         }
     }
 
@@ -176,7 +176,7 @@ export class GamePageComponent implements OnInit {
         if (this.gameStatusDesc !== this.previousGameStatus) {
             // na przycisku jest Z-A (czyli po tym dopiero bedziemy sortowac)
             // to dajemy aktyalny sort A-Z
-            if (this.sortingOrder === 'Z-A') {
+            if (!this.sortAZ) {
                 this.history = [...this.history, item];
             } else {
                 this.history = [item, ...this.history];

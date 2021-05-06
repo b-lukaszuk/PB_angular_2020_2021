@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
     title = 'tetris';
 
-    public displayLandPage: boolean = true;
+    public displayLandPage: boolean = false;
     public displayGamePage = !this.displayLandPage;
     public playerName: string = '';
     public playerEmail: string = '';

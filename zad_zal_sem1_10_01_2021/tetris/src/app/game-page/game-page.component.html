@@ -51,7 +51,7 @@
       </td>
       <td>
         <span>Sort history by timestamp: </span>
-        <button (click)="sortByTimestamp()">{{ sortingOrder }}</button>
+        <button (click)="sortByTimestamp()">{{ sortAZ ? "A-Z" : "Z-A" }}</button>
         <br /><br />
         <label for="historyItems"> Filter history by status: </label>
         <select name="historyItems" id="historyItems" [(ngModel)]="hItemSelect">
