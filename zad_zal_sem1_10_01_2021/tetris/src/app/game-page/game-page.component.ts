@@ -10,6 +10,7 @@ import { TetrisCoreComponent } from 'ngx-tetris';
 
 import { HistoryItem } from './historyItem/historyItem';
 import { HistoryFilterPipe } from './history-filter.pipe';
+import { SortHistoryItemsPipe } from './sort-history-items.pipe';
 
 @Component({
     selector: 'game-page',
@@ -136,7 +137,8 @@ export class GamePageComponent implements OnInit {
         let mins: number = Math.floor(seconds / 60);
         let secs: number = seconds % 60;
         return (
-            mins.toString().padStart(2, '0') + ':' + secs.toString().padStart(2, '0')
+            mins.toString().padStart(2, '0') + ':' +
+            secs.toString().padStart(2, '0')
         );
     }
 
@@ -151,36 +153,13 @@ export class GamePageComponent implements OnInit {
         clearTimeout(this.timeoutId);
     }
 
-    public sortByTimestamp() {
-        if (this.gameStatusDesc === 'started') {
-            this.stopGame();
-            alert('Game Paused. Sort performed');
-        } else if (this.sortAZ) {
-            this.history = this.history.sort(
-                (item1: HistoryItem, item2: HistoryItem) => {
-                    return item1.getSecs() - item2.getSecs();
-                }
-            );
-            this.sortAZ = !this.sortAZ;
-        } else {
-            this.history = this.history.sort(
-                (item1: HistoryItem, item2: HistoryItem) => {
-                    return item2.getSecs() - item1.getSecs();
-                }
-            );
-            this.sortAZ = !this.sortAZ;
-        }
+    public toggleSortAZ() {
+        this.sortAZ = !this.sortAZ;
     }
 
     public addItemToHistory(item: HistoryItem) {
         if (this.gameStatusDesc !== this.previousGameStatus) {
-            // na przycisku jest Z-A (czyli po tym dopiero bedziemy sortowac)
-            // to dajemy aktyalny sort A-Z
-            if (!this.sortAZ) {
-                this.history = [...this.history, item];
-            } else {
-                this.history = [item, ...this.history];
-            }
+            this.history = [...this.history, item];
         }
     }
 

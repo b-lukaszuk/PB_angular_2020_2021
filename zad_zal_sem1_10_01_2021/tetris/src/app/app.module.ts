@@ -13,6 +13,7 @@ import { TetrisDisplayComponent } from './game-page/tetris-display/tetris-displa
 import { GameNavComponent } from './game-page/game-nav/game-nav.component';
 import { GameInfoComponent } from './game-page/game-info/game-info.component';
 import { HistoryFilterPipe } from './game-page/history-filter.pipe';
+import { SortHistoryItemsPipe } from './game-page/sort-history-items.pipe';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { HistoryFilterPipe } from './game-page/history-filter.pipe';
         GameNavComponent,
         GameInfoComponent,
         HistoryFilterPipe,
+        SortHistoryItemsPipe,
     ],
     imports: [
         BrowserModule,

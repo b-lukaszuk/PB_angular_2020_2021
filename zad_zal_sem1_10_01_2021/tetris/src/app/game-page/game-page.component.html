@@ -51,7 +51,9 @@
       </td>
       <td>
         <span>Sort history by timestamp: </span>
-        <button (click)="sortByTimestamp()">{{ sortAZ ? "A-Z" : "Z-A" }}</button>
+        <button (click)="toggleSortAZ()">
+          {{ sortAZ ? "Z-A" : "A-Z" }}
+        </button>
         <br /><br />
         <label for="historyItems"> Filter history by status: </label>
         <select name="historyItems" id="historyItems" [(ngModel)]="hItemSelect">
@@ -66,7 +68,9 @@
         <ul>
           <li
             *ngFor="
-              let hItem of history | historyFilter: hItemSelect;
+              let hItem of history
+                | historyFilter: hItemSelect
+                | sortHistoryItems: sortAZ;
               let index = index
             "
           >
