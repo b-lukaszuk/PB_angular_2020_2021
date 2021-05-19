@@ -78,6 +78,6 @@ Two pages
 
 ## Licence
 
-This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
+This project is licensed under the MIT license. See the [LICENSE](https://opensource.org/licenses/MIT) file for more info.
 
 """
