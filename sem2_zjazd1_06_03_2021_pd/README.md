@@ -116,6 +116,7 @@ Two pages
 # Uruchomienie
 
 ```bash
+cd tetris
 ng serve -o
 ```
 

@@ -1,6 +1,7 @@
 # Uruchamianie
 
 ```bash
+cd tetris
 ng serve -o
 ```
 
