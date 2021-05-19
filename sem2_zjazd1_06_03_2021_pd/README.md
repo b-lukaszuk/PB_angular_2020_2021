@@ -4,10 +4,12 @@
 
 # Spis tresci
 
-1. [Info](#Info)
-2. [Uruchomienie](#Uruchomienie)
-3. [Authors](#Authors)
-4. [License](#License)
+1. [Info](#info)
+2. [Uruchomienie](#uruchomienie)
+2.1. [17-02-2021](#17-02-2021)
+2.2. [10-01-2021](#10-01-2021)
+3. [Authors](#authors)
+4. [License](#license)
 
 ---
 
