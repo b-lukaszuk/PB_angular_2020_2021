@@ -6,8 +6,9 @@
 
 1. [Info](#info)
 2. [Uruchomienie](#uruchomienie)
-2.1. [17-02-2021](#17-02-2021)
-2.2. [10-01-2021](#10-01-2021)
+   + [06-03-2021](#06-03-2021)
+   + [17-02-2021](#17-02-2021)
+   + [10-01-2021](#10-01-2021)
 3. [Authors](#authors)
 4. [License](#license)
 
@@ -15,7 +16,43 @@
 
 # Info
 
-Projekt zapoczatkowan jako praca domowa na zaliczenie semestru 1 z przedmiotu Angular od Podstaw na podyplomowce PB JS developer (2020/2021)
+Projekt zapoczatkowany jako praca domowa na zaliczenie semestru 1 z przedmiotu Angular od Podstaw na podyplomowce PB JS developer (2020/2021)
+
+## 06-03-2021
+
+Ponizej kopiuj-wklej z wykladu Chrystiana:
+
+"""
+
+### Convert showing/hiding to routing
+
+#### Intro page (smart component, route)
+
++ handles navigation
++ composed from:
+  - Intro text
+  - Player form component (dumb component)
+
+#### Game page (smart component, route)
+
++ handles navigation (going back, Location service)
++ composed from:
+  - Personalized welcoming tex
+  - Game info: status, points (dumb component)
+  - tetris game code (library)
+  - Controller (dumb component)
+
+App should be broken now - no data being passed from Intro to Game page
+
+### Store player data in a service
+
+#### Create service for storing player data
+
+#### Intro page - puts player data to store
+
+#### Game page - reads player data from store
+
+"""
 
 ## 17-02-2021
 
