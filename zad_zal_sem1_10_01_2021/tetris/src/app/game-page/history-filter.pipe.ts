@@ -12,9 +12,7 @@ export class HistoryFilterPipe implements PipeTransform {
             return historyItems;
         } else {
             return historyItems.filter((hItem) => {
-                if (hItem.getActionName() === searchTerm) {
-                    return hItem;
-                }
+                return hItem.getActionName() === searchTerm;
             })
         }
     }
