@@ -46,11 +46,9 @@ App should be broken now - no data being passed from Intro to Game page
 
 ### Store player data in a service
 
-#### Create service for storing player data
-
-#### Intro page - puts player data to store
-
-#### Game page - reads player data from store
++ Create service for storing player data
++ Intro page - puts player data to store
++ Game page - reads player data from store
 
 """
 
