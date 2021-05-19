@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms'; // do dzialania (ngForms, ngModel)
+import { AppRoutingModule } from './app-routing.module';
 
 import { TetrisCoreModule } from 'ngx-tetris';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -32,6 +33,7 @@ import { SortHistoryItemsPipe } from './game-page/sort-history-items.pipe';
         BrowserModule,
         TetrisCoreModule,
         FormsModule, // wymagane do dzialania (ngForms, ngModel)
+        AppRoutingModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
