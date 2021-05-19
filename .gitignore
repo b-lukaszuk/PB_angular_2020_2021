@@ -68,3 +68,7 @@
 !/zad_zal_sem1_10_01_2021/tetris/src/styles.css
 
 #################################
+
+# except for the folder
+!/sem2_zjazd1_06_03_2021_pd/
+/sem2_zjazd1_06_03_2021_pd/*/node_modules

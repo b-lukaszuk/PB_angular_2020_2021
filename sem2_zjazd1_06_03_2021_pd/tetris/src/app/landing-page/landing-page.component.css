@@ -1,0 +1,76 @@
+button {
+  background-color: #3584d4; /* blue */
+  border: none;
+  color: white;
+  padding: 0.4em 0.8em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5em;
+  font-weight: bold;
+  border-radius: 0.4em;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #3584ff; /* different blue */
+}
+
+legend {
+  font-size: 1.4em;
+}
+
+input[type="text"] {
+  height: 1.8em;
+  font-size: 1.1em;
+}
+
+input[type="text"]:focus {
+  border: solid;
+  border-width: 0.2em;
+  border-color: #3584e4;
+  box-shadow: 0.2em #3584e4;
+  transform: scale(1.025);
+}
+
+input[type="text"]:invalid {
+  border-left: 0.5em solid #ffbeab;
+}
+
+input[type="text"]:valid {
+  border-left: 0.5em solid #c9fec9;
+}
+
+input[type="email"] {
+  height: 1.8em;
+  font-size: 1.1em;
+}
+
+input[type="email"]:focus {
+  border: solid;
+  border-width: 0.2em;
+  border-color: #3584e4;
+  box-shadow: 0.2em #3584e4;
+  transform: scale(1.025);
+}
+
+input[type="email"]:invalid {
+  border-left: 0.5em solid #ffbeab;
+}
+
+input[type="email"]:valid {
+  border-left: 0.5em solid #c9fec9;
+}
+
+.centered-div {
+  width: 40%;
+  margin: 0% 30% 30%;
+  padding: 2em;
+  background-color: white;
+  border-radius: 0em 0em 2em em;
+  text-align: center;
+}
+
+p {
+  font-size: 1.2em;
+}
