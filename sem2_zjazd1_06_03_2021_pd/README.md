@@ -5,10 +5,10 @@
 # Spis tresci
 
 1. [Info](#info)
-2. [Uruchomienie](#uruchomienie)
    + [06-03-2021](#06-03-2021)
    + [17-02-2021](#17-02-2021)
    + [10-01-2021](#10-01-2021)
+2. [Uruchomienie](#uruchomienie)
 3. [Authors](#authors)
 4. [License](#license)
 
