@@ -72,7 +72,6 @@ export class GamePageComponent implements OnInit {
             playerName: '',
             playerEmail: '',
         });
-        console.log("exiting the game");
     }
 
     public startGame() {

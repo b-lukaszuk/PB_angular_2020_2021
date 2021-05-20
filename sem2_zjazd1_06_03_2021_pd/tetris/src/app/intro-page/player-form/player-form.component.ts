@@ -1,13 +1,14 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { PlayerDataService } from 'src/app/player-data.service';
 
 @Component({
     selector: 'player-form',
     templateUrl: './player-form.component.html',
     styleUrls: ['./player-form.component.css']
 })
-export class PlayerFormComponent {
+export class PlayerFormComponent implements OnInit {
 
-    constructor() { }
+    constructor(private _playerDataService: PlayerDataService) { }
 
     @Output() public mayGoToGamePageEvent = new EventEmitter();
 
@@ -42,7 +43,12 @@ export class PlayerFormComponent {
 
     public fireEventMayGoToGamePage() {
         let goToPage: boolean = this.mayGoToGamePage();
+        this._playerDataService.setPlayerData(this.playerName,
+            this.playerEmail);
         this.mayGoToGamePageEvent.emit(goToPage);
+    }
+
+    ngOnInit() {
     }
 
 }

@@ -13,6 +13,8 @@ import { SortHistoryItemsPipe } from './game-page/sort-history-items.pipe';
 import { IntroTextComponent } from './intro-page/intro-text/intro-text.component';
 import { PlayerFormComponent } from './intro-page/player-form/player-form.component';
 
+import { PlayerDataService } from './player-data.service';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -30,7 +32,7 @@ import { PlayerFormComponent } from './intro-page/player-form/player-form.compon
         FormsModule, // wymagane do dzialania (ngForms, ngModel)
         AppRoutingModule,
     ],
-    providers: [],
+    providers: [PlayerDataService],
     bootstrap: [AppComponent],
 })
 export class AppModule { }

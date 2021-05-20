@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PlayerDataService } from 'src/app/player-data.service';
 
 @Component({
     selector: 'player-info',
@@ -6,12 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
     styleUrls: ['./player-info.component.css']
 })
 export class PlayerInfoComponent implements OnInit {
-    @Input() playerName: string;
-    @Input() playerEmail: string;
+    public playerName: string;
+    public playerEmail: string;
 
-    constructor() { }
+    constructor(private _playerDataService: PlayerDataService) { }
 
-    ngOnInit(): void {
+    ngOnInit() {
+        let playerData = this._playerDataService.getPlayerData();
+        this.playerName = playerData.playerName;
+        this.playerEmail = playerData.playerEmail;
     }
 
 }
