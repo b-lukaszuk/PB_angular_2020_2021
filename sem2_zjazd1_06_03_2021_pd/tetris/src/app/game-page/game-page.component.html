@@ -4,7 +4,14 @@
       <td>
         <player-info [playerName]="playerName" [playerEmail]="playerEmail">
         </player-info>
-        <button (click)="exitGameButton(true)">Exit the game</button>
+        <a
+          routerLink="/introPage"
+          routerLinkActive="active"
+          [ngClass]="{ 'button-link': true }"
+          (click)="exitGameButton(true)"
+        >
+          Exit the game
+        </a>
       </td>
       <td>
         <tetris-core
