@@ -8,5 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class IntroPageComponent implements OnInit {
     constructor() { }
 
-    ngOnInit(): void { }
+    public mayGoToGamePage: boolean = false;
+
+    ngOnInit(): void {
+    }
+
 }

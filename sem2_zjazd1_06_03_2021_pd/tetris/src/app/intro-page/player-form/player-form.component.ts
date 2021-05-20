@@ -1,35 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
     selector: 'player-form',
     templateUrl: './player-form.component.html',
     styleUrls: ['./player-form.component.css']
 })
-export class PlayerFormComponent implements OnInit {
+export class PlayerFormComponent {
 
     constructor() { }
+
+    @Output() public mayGoToGamePageEvent = new EventEmitter();
 
     // dane uzytkownika
     public playerName: string = '';
     public playerEmail: string = '';
 
-    private isNameOk(name: string) {
-        return name.trim().match(/^[a-zA-Z ,.'-]+$/);
+    public setPlayerName(name: string) {
+        this.playerName = name;
+        this.fireEventMayGoToGamePage();
     }
 
-    private isEmailOk(email: string) {
-        return email.trim().match(/^[^@]+@[^@]+\.[^@]+$/);
+    public setPlayerEmail(email: string) {
+        this.playerEmail = email;
+        this.fireEventMayGoToGamePage();
+    }
+
+    public isNameOk() {
+        return this.playerName.trim().match(/^[a-zA-Z ,.'-]+$/);
+    }
+
+    public isEmailOk() {
+        return this.playerEmail.trim().match(/^[^@]+@[^@]+\.[^@]+$/);
     }
 
     public mayGoToGamePage(): boolean {
-        if (this.isNameOk(this.playerName) && this.isEmailOk(this.playerEmail)) {
+        if (this.isNameOk() && this.isEmailOk()) {
             return true;
         }
         return false;
     }
 
-    ngOnInit(): void {
-
+    public fireEventMayGoToGamePage() {
+        let goToPage: boolean = this.mayGoToGamePage();
+        this.mayGoToGamePageEvent.emit(goToPage);
     }
 
 }

@@ -1,4 +1,17 @@
 <div>
-    <intro-text></intro-text>
-    <player-form></player-form>
+  <intro-text></intro-text>
+  <player-form
+      (mayGoToGamePageEvent)="mayGoToGamePage=$event"
+  ></player-form>
+  <div class="container">
+    <a
+      routerLink="/gamePage"
+      routerLinkActive="active"
+      [ngClass]="{ 'button-link': true, 'disabled-link': !mayGoToGamePage }"
+      class="button-link"
+    >
+      I'm Your Huckellberry, and that's just my game!
+    </a>
+  </div>
+  <authors-info></authors-info>
 </div>
