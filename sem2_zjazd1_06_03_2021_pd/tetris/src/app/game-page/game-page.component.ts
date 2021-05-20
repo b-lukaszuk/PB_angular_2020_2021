@@ -1,9 +1,6 @@
 import {
     Component,
     OnInit,
-    Input,
-    Output,
-    EventEmitter,
     ViewChild,
 } from '@angular/core';
 import { TetrisCoreComponent } from 'ngx-tetris';
@@ -19,11 +16,6 @@ import { SortHistoryItemsPipe } from './sort-history-items.pipe';
 })
 export class GamePageComponent implements OnInit {
     constructor() { }
-    //////////////
-    // Inputy
-    //////////////
-    @Input() playerName: string;
-    @Input() playerEmail: string;
 
     //////////////
     // Podgladanie dziecka
