@@ -22,20 +22,16 @@ export class LandingPageComponent implements OnInit {
         return email.trim().match(/^[^@]+@[^@]+\.[^@]+$/);
     }
 
-    public enterGameButton(agreed: boolean) {
-        if (!this.isNameOk(this.playerName) && !this.isEmailOk(this.playerEmail)) {
-            alert('please enter correct player data, i.e. name and email');
-        } else if (!this.isNameOk(this.playerName)) {
-            alert('please enter correct player name');
-        } else if (!this.isEmailOk(this.playerEmail)) {
-            alert('please enter valid email');
-        } else {
+    public mayGoToGamePage(): boolean {
+        if (this.isNameOk(this.playerName) && this.isEmailOk(this.playerEmail)) {
             this.clicked.emit({
-                agreed: agreed,
+                agreed: true,
                 playerName: this.playerName,
                 playerEmail: this.playerEmail,
             });
+            return true;
         }
+        return false;
     }
 
     ngOnInit(): void { }
