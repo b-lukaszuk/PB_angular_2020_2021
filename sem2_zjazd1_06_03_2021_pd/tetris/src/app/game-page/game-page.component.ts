@@ -26,11 +26,6 @@ export class GamePageComponent implements OnInit {
     @Input() playerEmail: string;
 
     //////////////
-    // Outputy
-    //////////////
-    @Output() clicked = new EventEmitter<Object>();
-
-    //////////////
     // Podgladanie dziecka
     //////////////
     @ViewChild(TetrisCoreComponent)
@@ -63,15 +58,8 @@ export class GamePageComponent implements OnInit {
     //////////////
     // Metody w kalsie (do zast ktore public, ktore private)
     //////////////
-    public exitGameButton(agreed: boolean) {
+    public exitGameButton() {
         this.resetGame();
-        this.playerName = '';
-        this.playerEmail = '';
-        this.clicked.emit({
-            agreed: !agreed, // funkcj w app.ts oczekuje false-a
-            playerName: '',
-            playerEmail: '',
-        });
     }
 
     public startGame() {
