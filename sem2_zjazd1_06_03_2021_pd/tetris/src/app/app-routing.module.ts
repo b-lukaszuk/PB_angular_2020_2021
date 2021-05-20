@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { GamePageComponent } from './game-page/game-page.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
+import { IntroPageComponent } from './intro-page/intro-page.component';
 
 const routes: Routes = [
-    { path: 'introPage', component: LandingPageComponent },
+    { path: 'introPage', component: IntroPageComponent },
     { path: 'gamePage', component: GamePageComponent },
     { path: '**', redirectTo: 'introPage' },
 ];
@@ -14,4 +14,4 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [LandingPageComponent, GamePageComponent]
+export const routingComponents = [IntroPageComponent, GamePageComponent]

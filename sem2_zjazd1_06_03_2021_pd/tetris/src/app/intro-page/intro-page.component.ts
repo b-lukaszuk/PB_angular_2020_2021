@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-    selector: 'landing-page',
-    templateUrl: './landing-page.component.html',
-    styleUrls: ['./landing-page.component.css'],
+    selector: 'intro-page',
+    templateUrl: './intro-page.component.html',
+    styleUrls: ['./intro-page.component.css'],
 })
-export class LandingPageComponent implements OnInit {
+export class IntroPageComponent implements OnInit {
     constructor() { }
 
     @Output() clicked = new EventEmitter<Object>();
