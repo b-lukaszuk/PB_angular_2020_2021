@@ -13,6 +13,8 @@ import { GameNavComponent } from './game-page/game-nav/game-nav.component';
 import { GameInfoComponent } from './game-page/game-info/game-info.component';
 import { HistoryFilterPipe } from './game-page/history-filter.pipe';
 import { SortHistoryItemsPipe } from './game-page/sort-history-items.pipe';
+import { IntroTextComponent } from './intro-page/intro-text/intro-text.component';
+import { PlayerFormComponent } from './intro-page/player-form/player-form.component';
 
 @NgModule({
     declarations: [
@@ -25,6 +27,8 @@ import { SortHistoryItemsPipe } from './game-page/sort-history-items.pipe';
         GameInfoComponent,
         HistoryFilterPipe,
         SortHistoryItemsPipe,
+        IntroTextComponent,
+        PlayerFormComponent,
     ],
     imports: [
         BrowserModule,

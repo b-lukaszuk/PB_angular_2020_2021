@@ -1,41 +1,4 @@
 <div>
-  <div class="centered-div">
-    <h1>Hello stranger!</h1>
-    <h2>Do You have the guts to play for blood?</h2>
-    <br />
-    <p>Enter Your data below and play tetris</p>
-    <fieldset>
-      <legend>Player's Name</legend>
-      <input
-        [(ngModel)]="playerName"
-        maxLength="18"
-        placeholder="Enter Your Name..."
-        type="text"
-        pattern="^[a-zA-Z ,.'-]+$"
-        required
-      />
-    </fieldset>
-    <fieldset>
-      <legend>Player's email</legend>
-      <input
-        [(ngModel)]="playerEmail"
-        maxLength="18"
-        placeholder="Enter Your e-mail address..."
-        type="email"
-        pattern="^[^@]+@[^@]+\.[^@]+$"
-        required
-      />
-    </fieldset>
-    <br />
-    <a
-      routerLink="/gamePage"
-      routerLinkActive="active"
-      [ngClass]="{ 'button-link': true, 'disabled-link': !mayGoToGamePage() }"
-      class="button-link"
-    >
-      I'm Your Huckellberry, and that's just my game!
-    </a>
-
-    <authors-info></authors-info>
-  </div>
+    <intro-text></intro-text>
+    <player-form></player-form>
 </div>
