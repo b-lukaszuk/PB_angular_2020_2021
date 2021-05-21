@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="centered-div">
+    <h2>Enter Your data below and play tetris</h2>
+    <fieldset>
+      <legend>Player's Name</legend>
+      <input
+        [ngModel]="playerName"
+        (ngModelChange)="setPlayerName($event)"
+        maxLength="18"
+        placeholder="Enter Your Name..."
+        type="text"
+        pattern="^[a-zA-Z ,.'-]+$"
+        required
+      />
+    </fieldset>
+    <fieldset>
+      <legend>Player's email</legend>
+      <input
+        [ngModel]="playerEmail"
+        (ngModelChange)="setPlayerEmail($event)"
+        maxLength="18"
+        placeholder="Enter Your e-mail address..."
+        type="email"
+        pattern="^[^@]+@[^@]+\.[^@]+$"
+        required
+      />
+    </fieldset>
+    <br />
+  </div>
+</div>

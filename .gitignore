@@ -72,3 +72,7 @@
 # except for the folder
 !/sem2_zjazd1_06_03_2021_pd/
 /sem2_zjazd1_06_03_2021_pd/*/node_modules
+
+# except for the folder
+!/sem2_zjazd2_20_03_2021_pd/
+/sem2_zjazd2_20_03_2021_pd/*/node_modules
