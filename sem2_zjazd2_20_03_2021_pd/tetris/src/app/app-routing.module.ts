@@ -8,7 +8,7 @@ const routes: Routes = [
     { path: 'introPage', component: IntroPageComponent },
     { path: 'gamePage', component: GamePageComponent },
     { path: 'highScores', component: HighScoresComponent },
-    { path: '**', redirectTo: 'introPage' },
+    { path: '**', redirectTo: 'highScores' },
 ];
 
 @NgModule({

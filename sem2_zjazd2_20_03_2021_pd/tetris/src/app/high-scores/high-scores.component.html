@@ -1,16 +1,22 @@
+<h1>Top 10 scores</h1>
 <table class="table">
-    <thead>
+  <thead>
     <tr>
-	<th scope="col">#</th>
-	<th scope="col">Name</th>
-	<th scope="col">Score (pts)</th>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Score (pts)</th>
     </tr>
-    </thead>
-    <tbody *ngFor="let highScore of highScores; index as rId">
+  </thead>
+  <tbody
+    *ngFor="
+      let highScore of highScores | highScoresSort : false;
+      index as rId
+    "
+  >
     <tr>
-	<th scope="row">{{rId+1}}</th>
-        <td>{{highScore.name}}</td>
-        <td>{{highScore.score}}</td>
+      <th scope="row">{{ rId + 1 }}</th>
+      <td>{{ highScore.name }}</td>
+      <td>{{ highScore.score }}</td>
     </tr>
-    </tbody>
+  </tbody>
 </table>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IHighScore } from '../highScore';
 import { HighScoresService } from 'src/app/high-scores.service';
+import { HighScoresSortPipe } from './high-scores-sort.pipe';
 
 @Component({
     selector: 'high-scores',
@@ -16,6 +17,7 @@ export class HighScoresComponent implements OnInit {
     ngOnInit(): void {
         this._highScoresServide.getHighScores()
             .subscribe((data) => { this.highScores = data });
+        console.log(HighScoresSortPipe);
     }
 
 }

@@ -18,6 +18,7 @@ import { HighScoresComponent } from './high-scores/high-scores.component';
 import { PlayerDataService } from './player-data.service';
 import { HighScoresService } from './high-scores.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HighScoresSortPipe } from './high-scores/high-scores-sort.pipe';
 
 @NgModule({
     declarations: [
@@ -30,6 +31,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         IntroTextComponent,
         PlayerFormComponent,
         HighScoresComponent,
+        HighScoresSortPipe,
     ],
     imports: [
         BrowserModule,
