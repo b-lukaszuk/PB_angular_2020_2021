@@ -9,7 +9,7 @@ import { IHighScore } from './highScore';
 export class HighScoresService {
 
     private _scoresUrl: string = "http://tetris.chrum.it/scores";
-    private _headersForGetScores: HttpHeaders = new HttpHeaders({
+    private _headersForScores: HttpHeaders = new HttpHeaders({
         "accept": "application/json"
     });
 
@@ -18,8 +18,13 @@ export class HighScoresService {
     public getHighScores(): Observable<IHighScore[]> {
         return this._http.get<IHighScore[]>(this._scoresUrl,
             {
-                headers: this._headersForGetScores
+                headers: this._headersForScores
             });
+    }
+
+    public pushToHighScores(newScore: IHighScore): void {
+        this._http.post(this._scoresUrl, newScore,
+            { headers: this._headersForScores });
     }
 
 }
