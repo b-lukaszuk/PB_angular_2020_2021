@@ -1,1 +1,16 @@
-<p>high-scores works!</p>
+<table class="table">
+    <thead>
+    <tr>
+	<th scope="col">#</th>
+	<th scope="col">Name</th>
+	<th scope="col">Score (pts)</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let highScore of highScores; index as rId">
+    <tr>
+	<th scope="row">{{rId+1}}</th>
+        <td>{{highScore.name}}</td>
+        <td>{{highScore.score}}</td>
+    </tr>
+    </tbody>
+</table>

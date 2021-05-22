@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IHighScore } from '../highScore';
+import { HighScoresService } from 'src/app/high-scores.service';
 
 @Component({
     selector: 'high-scores',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HighScoresComponent implements OnInit {
 
-    constructor() { }
+    constructor(private _highScoresServide: HighScoresService) { }
+
+    public highScores: IHighScore[] = [];
 
     ngOnInit(): void {
+        this._highScoresServide.getHighScores()
+            .subscribe((data) => { this.highScores = data });
     }
 
 }
