@@ -21,6 +21,8 @@ Projekt zapoczatkowany jako praca domowa na zaliczenie semestru 1 z przedmiotu A
 
 ## 20-03-2021
 
+[Powrot do spisu tresci](#spis-tresci)
+
 Ponizej kopiuj-wklej z wykladu Chrystiana:
 
 """
@@ -63,6 +65,8 @@ http://tetris.chrum.it/docs
 
 ## 06-03-2021
 
+[Powrot do spisu tresci](#spis-tresci)
+
 Ponizej kopiuj-wklej z wykladu Chrystiana:
 
 """
@@ -97,6 +101,8 @@ App should be broken now - no data being passed from Intro to Game page
 
 ## 17-02-2021
 
+[Powrot do spisu tresci](#spis-tresci)
+
 Ponizej kopiuj-wklej z [githuba](https://github.com/chrum/ng-2020/blob/master/README.md)
 Chrystiana:
 
@@ -105,6 +111,7 @@ Chrystiana:
 ### Project
 
 #### Overview
+
 Two pages
 - Intro page with intro text and player form
 - Game page
@@ -120,6 +127,7 @@ Two pages
 - if name and email are fine then store this data and move to the game page
 
 #### Game page specification
+
 **basic version**
 - there should be a button 'exit game' which will move player to intro page
 - there should be nice, personalized welcome message (with player name)
@@ -141,6 +149,8 @@ Two pages
 
 ## 10-01-2021
 
+[Powrot do spisu tresci](#spis-tresci)
+
 > Game page<br>
 > there should be a button 'exit game' which will move player to intro page<br>
 > there should be nice, personalized welcome message (with player name)<br>
@@ -158,6 +168,8 @@ Two pages
 
 # Uruchomienie
 
+[Powrot do spisu tresci](#spis-tresci)
+
 ```bash
 cd tetris
 ng serve -o
@@ -165,9 +177,13 @@ ng serve -o
 
 # Authors
 
+[Powrot do spisu tresci](#spis-tresci)
+
 - [Chrystian Ruminowicz](http://chrum.it) autor [ngx-tetris](https://www.npmjs.com/package/ngx-tetris)
 - Bartlomiej Lukaszuk - autor 'obudowy'
 
 # Licence
+
+[Powrot do spisu tresci](#spis-tresci)
 
 This project is licensed under the MIT license. See the [LICENSE](https://opensource.org/licenses/MIT) file for more info.
