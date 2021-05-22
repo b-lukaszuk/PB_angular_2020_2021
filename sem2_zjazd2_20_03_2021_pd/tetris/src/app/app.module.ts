@@ -14,6 +14,7 @@ import { IntroTextComponent } from './intro-page/intro-text/intro-text.component
 import { PlayerFormComponent } from './intro-page/player-form/player-form.component';
 
 import { PlayerDataService } from './player-data.service';
+import { HighScoresComponent } from './high-scores/high-scores.component';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { PlayerDataService } from './player-data.service';
         SortHistoryItemsPipe,
         IntroTextComponent,
         PlayerFormComponent,
+        HighScoresComponent,
     ],
     imports: [
         BrowserModule,

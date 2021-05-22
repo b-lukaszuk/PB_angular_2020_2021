@@ -24,6 +24,7 @@ Projekt zapoczatkowany jako praca domowa na zaliczenie semestru 1 z przedmiotu A
 Ponizej kopiuj-wklej z wykladu Chrystiana:
 
 """
+
 http://tetris.chrum.it/scores
 
 and
