@@ -13,11 +13,15 @@ export class HighScoresComponent implements OnInit {
     constructor(private _highScoresServide: HighScoresService) { }
 
     public highScores: IHighScore[] = [];
+    public sortAsc: boolean = false;
+
+    public toggleSortAsc() {
+        this.sortAsc = !this.sortAsc;
+    }
 
     ngOnInit(): void {
         this._highScoresServide.getHighScores()
             .subscribe((data) => { this.highScores = data });
-        console.log(HighScoresSortPipe);
     }
 
 }

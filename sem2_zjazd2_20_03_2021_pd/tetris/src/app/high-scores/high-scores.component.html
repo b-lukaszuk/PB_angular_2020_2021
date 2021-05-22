@@ -1,4 +1,18 @@
 <h1>Top 10 scores</h1>
+<div class="custom-control custom-checkbox custom-control-xl">
+  <input
+    width="2em"
+    height="2em"
+    class="custom-control-input"
+    name="sortAscending"
+    id="sortAscending"
+    type="checkbox"
+    value=""
+    (click)="toggleSortAsc()"
+  />
+  &nbsp; &nbsp;
+  <label class="custom-control-label" for="sortAscending">Sort Ascending</label>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -9,7 +23,7 @@
   </thead>
   <tbody
     *ngFor="
-      let highScore of highScores | highScoresSort : false;
+      let highScore of highScores | highScoresSort: sortAsc | slice: 0:10;
       index as rId
     "
   >
