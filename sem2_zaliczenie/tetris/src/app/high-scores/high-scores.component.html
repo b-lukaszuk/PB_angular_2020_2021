@@ -1,0 +1,36 @@
+<h1>{{ sortAsc ? "Bottom" : "Top" }} 10 scores</h1>
+<div class="custom-control custom-checkbox custom-control-xl">
+  <input
+    width="2em"
+    height="2em"
+    class="custom-control-input"
+    name="sortAscending"
+    id="sortAscending"
+    type="checkbox"
+    value=""
+    (click)="toggleSortAsc()"
+  />
+  &nbsp; &nbsp;
+  <label class="custom-control-label" for="sortAscending">Sort Ascending</label>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Score (pts)</th>
+    </tr>
+  </thead>
+  <tbody
+    *ngFor="
+      let highScore of highScores | highScoresSort: sortAsc | slice: 0:10;
+      index as rId
+    "
+  >
+    <tr>
+      <th scope="row">{{ rId + 1 }}</th>
+      <td>{{ highScore.name }}</td>
+      <td>{{ highScore.score }}</td>
+    </tr>
+  </tbody>
+</table>
