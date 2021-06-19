@@ -6,12 +6,12 @@ import { HighScoresComponent } from './high-scores/high-scores.component';
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 const routes: Routes = [
-    { path: 'introPage', component: IntroPageComponent },
+    { path: '', redirectTo: 'introPage/normal', pathMatch: 'full' },
     { path: 'introPage/:color', component: IntroPageComponent },
-    { path: 'gamePage', component: GamePageComponent },
+    { path: 'introPage', redirectTo: "introPage/normal", pathMatch: "full" },
     { path: 'gamePage/:color', component: GamePageComponent },
+    { path: 'gamePage', redirectTo: 'gamePage/normal', pathMatch: 'full' },
     { path: 'highScores', component: HighScoresComponent },
-    { path: '', component: IntroPageComponent },
     { path: '**', component: PageNotFoundComponent },
 ];
 
