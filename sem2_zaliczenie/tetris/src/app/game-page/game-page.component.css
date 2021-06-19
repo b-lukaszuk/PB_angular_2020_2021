@@ -1,5 +1,5 @@
 button {
-  background-color: #3584d4; /* blue */
+  background-color: #3584d4;
   border: none;
   color: white;
   padding: 0.4em 0.8em;
@@ -13,7 +13,7 @@ button {
 
 button:hover {
   cursor: pointer;
-  background-color: #3584ff; /* different blue */
+  background-color: #3584ff;
 }
 
 table > tr > td {
@@ -27,26 +27,25 @@ table > tr > td > table > tr > td {
   padding: 0.5em;
 }
 
-
 .button-link {
-    background-color: #008CBA; /* blue */
-    border: none;
-    border-radius: 0.4em;
-    color: white;
-    padding: 0.4em 0.8em;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1em;
-    font-weight: bold;
+  background-color: #008cba;
+  border: none;
+  border-radius: 0.4em;
+  color: white;
+  padding: 0.4em 0.8em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 .button-link:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .disabled-link {
-    background-color: lightgray;
-    cursor: auto;
-    pointer-events: none;
+  background-color: lightgray;
+  cursor: auto;
+  pointer-events: none;
 }

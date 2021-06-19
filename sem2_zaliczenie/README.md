@@ -21,7 +21,7 @@
 
 Projekt zapoczatkowany jako praca domowa na zaliczenie semestru 1 z przedmiotu Angular od Podstaw na podyplomowce PB JS developer (2020/2021)
 
-## Wymagania 1
+## Wymagania 1 (done)
 
 [Powrot do spisu tresci](#spis-tresci)
 
@@ -42,7 +42,7 @@ Projekt zapoczatkowany jako praca domowa na zaliczenie semestru 1 z przedmiotu A
 
 App should be broken now - no data being passed from Intro to Game page
 
-## Wymagania 2
+## Wymagania 2 (done)
 
 [Powrot do spisu tresci](#spis-tresci)
 
@@ -63,7 +63,7 @@ App should be broken now - no data being passed from Intro to Game page
 - Allow player to select color palette: normal, high contrast
 - Pass selected color palette through route parameter
 3. Game page
-- Add support for 'high contrast' color palette (heres how)
+- Add support for 'high contrast' color palette ([heres how](https://www.npmjs.com/package/ngx-tetris#styling))
 - Read route 'colors' param
 - Bind route param to game component ([] or [ngClass])
 

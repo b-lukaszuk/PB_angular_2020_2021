@@ -1,47 +1,64 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { PlayerDataService } from 'src/app/player-data.service';
-import { HighScoresService } from 'src/app/high-scores.service';
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'player-form',
     templateUrl: './player-form.component.html',
-    styleUrls: ['./player-form.component.css']
+    styleUrls: ['./player-form.component.css'],
 })
 export class PlayerFormComponent implements OnInit {
-
     constructor(private _playerDataService: PlayerDataService,
-        private _highScoresService: HighScoresService) { }
+        private _router: Router) { }
+
+    public colorPalettes = ["normal", "high-contrast"];
+    public colorPalette = "normal";
+    public colorOnSelect() {
+        this._router.navigate(["/introPage", this.colorPalette]);
+    }
 
     // dane uzytkownika
     public playerName: string = '';
     public playerId: string = '';
 
-    public goToGamePageAllowed: boolean = false;
+    public goToGamePageBtnActive: boolean = false;
 
-    public setPlayerName(name: string) {
+    public setPlayerName(name: string): void {
         this.playerName = name;
         this.checkIfMayGoToGamePage();
     }
 
-    public setPlayerId(id: string) {
+    public setPlayerId(id: string): void {
         this.playerId = id;
         this.checkIfMayGoToGamePage();
     }
 
-    public isNameOk() {
-        return this.playerName.trim().match(/^[a-zA-Z ,.'-]+$/);
+    public isNameOk(): boolean {
+        return this.playerName.trim() !== '';
     }
 
-    public isIdOk() {
-        console.log(this._highScoresService.isTokenCorrect(this.playerId));
-        return this.playerId.trim() !== "";
+    public isIdOk(): boolean {
+        return this.playerId.trim() !== '';
+    }
+
+    public login() {
+        this._playerDataService.isTokenCorrect(this.playerId)
+            .then((res) => {
+                if (res) {
+                    // alert("login successful");
+                    console.log("login successful");
+                } else {
+                    // alert("login failed");
+                    console.log("login failed");
+                }
+            })
     }
 
     public checkIfMayGoToGamePage(): void {
         if (this.isNameOk() && this.isIdOk()) {
-            this.goToGamePageAllowed = true;
+            this.goToGamePageBtnActive = true;
         } else {
-            this.goToGamePageAllowed = false;
+            this.goToGamePageBtnActive = false;
         }
     }
 
@@ -51,5 +68,4 @@ export class PlayerFormComponent implements OnInit {
     ngOnDestroy() {
         this._playerDataService.setPlayerData(this.playerName, this.playerId);
     }
-
 }

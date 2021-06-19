@@ -25,10 +25,27 @@
       />
     </fieldset>
     <br />
+    <label for="colorPalettes"> color palette: </label>
+    <select
+      name="colorPalettes"
+      id="colorPalettes"
+      [(ngModel)]="colorPalette"
+      (change)="colorOnSelect()"
+    >
+      <option *ngFor="let color of colorPalettes" [value]="color">
+        {{ color }}
+      </option>
+    </select>
+    <br />
+    <br />
     <a
       routerLink="/gamePage"
       routerLinkActive="active"
-      [ngClass]="{ 'button-link': true, 'disabled-link': !goToGamePageAllowed }"
+      [ngClass]="{
+        'button-link': true,
+        'disabled-link': !goToGamePageBtnActive
+      }"
+      (click)="login()"
     >
       I'm Your Huckellberry, and that's just my game!
     </a>

@@ -4,6 +4,7 @@ import {
     ViewChild,
 } from '@angular/core';
 import { TetrisCoreComponent } from 'ngx-tetris';
+import { ActivatedRoute } from "@angular/router";
 
 import { HistoryItem } from './historyItem/historyItem';
 import { HistoryFilterPipe } from './history-filter.pipe';
@@ -15,13 +16,16 @@ import { SortHistoryItemsPipe } from './sort-history-items.pipe';
     styleUrls: ['./game-page.component.css'],
 })
 export class GamePageComponent implements OnInit {
-    constructor() { }
+    constructor(private _activatedRoute: ActivatedRoute) { }
 
     //////////////
     // Podgladanie dziecka
     //////////////
     @ViewChild(TetrisCoreComponent)
     private _tetris: TetrisCoreComponent;
+
+
+    public colorPalette: string = "normal";
 
     //////////////
     // Pola w klasie (do zast ktore public, ktore private)
@@ -147,5 +151,6 @@ export class GamePageComponent implements OnInit {
         this.seconds = 0;
         this.time = this.secsToMins(this.seconds);
         this.history = [];
+        this.colorPalette = this._activatedRoute.snapshot.paramMap.get("color");
     }
 }

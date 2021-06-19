@@ -1,3 +1,3 @@
 export interface IAuthToken {
-    success: boolean,
+    success: boolean
 }

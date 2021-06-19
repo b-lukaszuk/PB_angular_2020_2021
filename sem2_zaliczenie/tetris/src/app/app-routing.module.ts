@@ -7,7 +7,9 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 
 const routes: Routes = [
     { path: 'introPage', component: IntroPageComponent },
+    { path: 'introPage/:color', component: IntroPageComponent },
     { path: 'gamePage', component: GamePageComponent },
+    { path: 'gamePage/:color', component: GamePageComponent },
     { path: 'highScores', component: HighScoresComponent },
     { path: '', component: IntroPageComponent },
     { path: '**', component: PageNotFoundComponent },
