@@ -48,4 +48,8 @@ export class PlayerFormComponent implements OnInit {
     ngOnInit() {
     }
 
+    ngOnDestroy() {
+        this._playerDataService.setPlayerData(this.playerName, this.playerId);
+    }
+
 }
