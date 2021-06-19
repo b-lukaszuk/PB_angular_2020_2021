@@ -3,8 +3,10 @@ tetris-core.black-and-white tile {
   background: white;
 }
 
-/* neccessary, otherwise i can't see game-pieces*/
-/* ehh, a lot of game-pieces */
+/* neccessary, otherwise i can't see game-pieces */
+/* za: https://github.com/chrum/ngx-tetris/blob/master/src/styles.scss */
+/* Ctrl+Shift-I w przegladarce */
+
 tetris-core.black-and-white tile.color-box,
 tetris-core.black-and-white tile.color-dot,
 tetris-core.black-and-white tile.color-l,
