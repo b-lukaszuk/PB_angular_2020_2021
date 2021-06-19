@@ -42,6 +42,7 @@ export class PlayerFormComponent implements OnInit {
     }
 
     public login() {
+        this._playerDataService.setPlayerData(this.playerName, this.playerId);
         this._playerDataService.isTokenCorrect(this.playerId)
             .then((res) => {
                 if (res) {
@@ -64,6 +65,7 @@ export class PlayerFormComponent implements OnInit {
 
     ngOnInit() {
         this.colorPalette = this._activatedRoute.snapshot.paramMap.get("color");
+        this._playerDataService.setPlayerData("", "");
     }
 
     ngOnDestroy() {

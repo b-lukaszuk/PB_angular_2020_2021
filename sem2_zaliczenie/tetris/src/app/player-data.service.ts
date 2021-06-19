@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IAuthToken } from './authToken'
+import {
+    pushDictToLocalStorage,
+    getFromLocalStorage
+} from "./utils/localStorage";
 
 @Injectable({
     providedIn: 'root'
@@ -15,8 +19,8 @@ export class PlayerDataService {
         "Accept": "application/json",
         'Content-Type': 'application/json',
     });
-    private _name: string = "a";
-    private _playerId: string = "123";
+    private _name: string = getFromLocalStorage("playerName", "");
+    private _playerId: string = getFromLocalStorage("playerId", "");
 
     public getPlayerData() {
         return {
@@ -26,8 +30,15 @@ export class PlayerDataService {
     }
 
     public setPlayerData(name: string, id: string) {
+        pushDictToLocalStorage({ "playerName": name, "playerId": id });
         this._name = name;
         this._playerId = id;
+    }
+
+    public isPlayerOk() {
+        let result = this._name.trim() !== "" && this._playerId.trim() !== "";
+        console.log("is player OK", result);
+        return result;
     }
 
     // prawidlowy token to 4 dowolne cyfry, np. "1234"
