@@ -1,9 +1,13 @@
+<div class="main">
+<a routerLink="/introPage" routerLinkActive="active" class="button-link">
+      Back to main page
+    </a> &nbsp;&nbsp;
+<br /> <br />
 <h1>{{ sortAsc ? "Bottom" : "Top" }} 10 scores</h1>
-<div class="custom-control custom-checkbox custom-control-xl">
+<div>
   <input
     width="2em"
     height="2em"
-    class="custom-control-input"
     name="sortAscending"
     id="sortAscending"
     type="checkbox"
@@ -11,8 +15,9 @@
     (click)="toggleSortAsc()"
   />
   &nbsp; &nbsp;
-  <label class="custom-control-label" for="sortAscending">Sort Ascending</label>
+  <label for="sortAscending">Sort Ascending</label>
 </div>
+<br />
 <table class="table">
   <thead>
     <tr>
@@ -34,3 +39,4 @@
     </tr>
   </tbody>
 </table>
+</div>

@@ -39,7 +39,7 @@
     <br />
     <br />
     <a
-      routerLink="/gamePage/{{colorPalette}}"
+      routerLink="/gamePage/{{ colorPalette }}"
       routerLinkActive="active"
       [ngClass]="{
         'button-link': true,
@@ -48,6 +48,11 @@
       (click)="login()"
     >
       I'm Your Huckellberry, and that's just my game!
+    </a>
+    <br />
+    <br />
+    <a routerLink="/highScores" routerLinkActive="active" class="button-link">
+      See High Scores
     </a>
   </div>
 </div>
