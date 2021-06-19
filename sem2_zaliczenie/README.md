@@ -81,6 +81,10 @@ Prerequisite: Data from 'Intro page' form stored in service
 ```bash
 ng generate service playerDataGuard
 ```
+**Tu chyba wkradl sie blad**, bo [dokumentacja angulara](https://angular.io/guide/router#preventing-unauthorized-access) podaje:
+```bash
+ng generate guard your-guard
+```
 - Inject player data service
 - Implement CanActivate interface
 - Use player data service in 'decision making process'
