@@ -153,4 +153,5 @@ export class GamePageComponent implements OnInit {
         this.history = [];
         this.colorPalette = this._activatedRoute.snapshot.paramMap.get("color");
     }
+
 }

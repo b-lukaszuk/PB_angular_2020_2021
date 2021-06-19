@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { PlayerDataService } from 'src/app/player-data.service';
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
     selector: 'player-form',
@@ -9,10 +9,10 @@ import { Router } from "@angular/router";
 })
 export class PlayerFormComponent implements OnInit {
     constructor(private _playerDataService: PlayerDataService,
-        private _router: Router) { }
+        private _router: Router, private _activatedRoute: ActivatedRoute) { }
 
     public colorPalettes = ["normal", "high-contrast"];
-    public colorPalette = "normal";
+    public colorPalette = "";
     public colorOnSelect() {
         this._router.navigate(["/introPage", this.colorPalette]);
     }
@@ -63,6 +63,7 @@ export class PlayerFormComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.colorPalette = this._activatedRoute.snapshot.paramMap.get("color");
     }
 
     ngOnDestroy() {

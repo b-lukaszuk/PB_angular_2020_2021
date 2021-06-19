@@ -18,4 +18,8 @@ export class PlayerInfoComponent implements OnInit {
         this.playerId = playerData.playerId;
     }
 
+    ngOnDestroy() {
+        this._playerDataService.setPlayerData("", "");
+    }
+
 }
