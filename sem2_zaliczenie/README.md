@@ -10,10 +10,10 @@
    + [Wymagania 3](#wymagania-3)
    + [Wymagania 4](#wymagania-4)
    + [Wymagania 5](#wymagania-5)
-2. [Wymagania oryginalne](wymagania-oryginalne)
+2. [Wymagania oryginalne](#wymagania-oryginalne)
 2. [Uruchomienie](#uruchomienie)
 3. [Authors](#authors)
-4. [License](#license)
+4. [Licence](#licence)
 
 ---
 
@@ -21,7 +21,7 @@
 
 Projekt zapoczatkowany jako praca domowa na zaliczenie semestru 1 z przedmiotu Angular od Podstaw na podyplomowce PB JS developer (2020/2021)
 
-## Wymagania 1 (done)
+## Wymagania 1
 
 [Powrot do spisu tresci](#spis-tresci)
 
@@ -42,7 +42,7 @@ Projekt zapoczatkowany jako praca domowa na zaliczenie semestru 1 z przedmiotu A
 
 App should be broken now - no data being passed from Intro to Game page
 
-## Wymagania 2 (done)
+## Wymagania 2
 
 [Powrot do spisu tresci](#spis-tresci)
 
@@ -54,9 +54,9 @@ App should be broken now - no data being passed from Intro to Game page
 
 ## Wymagania 3
 
-### Parameters
-
 [Powrot do spisu tresci](#spis-tresci)
+
+### Parameters
 
 1 .Extend game route to accept parameter: 'colors'
 2. Intro page
