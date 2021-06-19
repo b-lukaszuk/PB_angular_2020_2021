@@ -42,12 +42,21 @@ Projekt zapoczatkowany jako praca domowa na zaliczenie semestru 1 z przedmiotu A
 
 App should be broken now - no data being passed from Intro to Game page
 
-
 ## Wymagania 2
 
 [Powrot do spisu tresci](#spis-tresci)
 
+### Store player data in a service
+
+1. Create service for storing player data
+2. Intro page - puts player data to store
+3. Game page - reads player data from store
+
+## Wymagania 3
+
 ### Parameters
+
+[Powrot do spisu tresci](#spis-tresci)
 
 1 .Extend game route to accept parameter: 'colors'
 2. Intro page
@@ -60,15 +69,29 @@ App should be broken now - no data being passed from Intro to Game page
 
 extra: allow color palette switching from game page (keep the url synced)
 
-## Wymagania 3
+### Guards (optional?)
 
-### Store player data in a service
+Prerequisite: Data from 'Intro page' form stored in service
 
-1. Create service for storing player data
-2. Intro page - puts player data to store
-3. Game page - reads player data from store
+1. Player data service modifications
+- Should expose interface indicating whether there is a player data inside or not (flag, check(), whatever)
+- Visiting intro page should clear data stored in player data service
+2. Guard creation
+- generation
+```bash
+ng generate service playerDataGuard
+```
+- Inject player data service
+- Implement CanActivate interface
+- Use player data service in 'decision making process'
+  + Player data NOT EMPTY: allow navigation
+  + Player data EMPTY: redirect to intro page
+- Add created guard to game page route
+- Hint: player data service should use local storage for player data persisting
 
 ## Wymagania 4
+
+[Powrot do spisu tresci](#spis-tresci)
 
 ### Reading and displaying highscores
 
@@ -81,7 +104,28 @@ extra: allow color palette switching from game page (keep the url synced)
 3. List sorting
 - allow sorting by: score asc/desc
 
+### Authentication input (optional?)
+
+(Intro page form) 
+
+1. Add token input ( student ID ) 
+- remove email from the form
+- add token input field (text entry, just required, no special validations)
+2. Upon form submission validate entered token (POST/check-token)
+
+### My score (optional?)
+
+1. On game finished
+- submit player score and name (POST /scores)
+- sign with auth token (auth-token header)
+2. Display my scores list (component): 
+- filter data (only my entries)
+- sorting by score asc/desc
+3. Update score lists every 30 seconds
+
 ## Wymagania 5
+
+[Powrot do spisu tresci](#spis-tresci)
 
 ### Intro page - transition to reactive form
 
@@ -98,8 +142,11 @@ extra: allow color palette switching from game page (keep the url synced)
 extra: store user input in local storage and fill the form for returning users
 (dont store auth code)
 
-
 # Wymagania oryginalne
+
+[Powrot do spisu tresci](#spis-tresci)
+
+Wymagania na zaliczenie 1 semestru
 
 ## Overview
 
