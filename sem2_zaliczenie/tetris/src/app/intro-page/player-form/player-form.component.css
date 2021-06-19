@@ -58,3 +58,26 @@ input[type="email"]:valid {
 p {
   font-size: 1.2em;
 }
+
+.button-link {
+    background-color: #008CBA; /* blue */
+    border: none;
+    border-radius: 0.4em;
+    color: white;
+    padding: 0.4em 0.8em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.button-link:hover {
+    cursor: pointer;
+}
+
+.disabled-link {
+    background-color: lightgray;
+    cursor: auto;
+    pointer-events: none;
+}

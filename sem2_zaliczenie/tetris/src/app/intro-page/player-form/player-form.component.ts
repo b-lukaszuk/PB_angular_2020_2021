@@ -12,20 +12,20 @@ export class PlayerFormComponent implements OnInit {
     constructor(private _playerDataService: PlayerDataService,
         private _highScoresService: HighScoresService) { }
 
-    @Output() public mayGoToGamePageEvent = new EventEmitter();
-
     // dane uzytkownika
     public playerName: string = '';
     public playerId: string = '';
 
+    public goToGamePageAllowed: boolean = false;
+
     public setPlayerName(name: string) {
         this.playerName = name;
-        this.fireEventMayGoToGamePage();
+        this.checkIfMayGoToGamePage();
     }
 
     public setPlayerId(id: string) {
         this.playerId = id;
-        this.fireEventMayGoToGamePage();
+        this.checkIfMayGoToGamePage();
     }
 
     public isNameOk() {
@@ -37,18 +37,12 @@ export class PlayerFormComponent implements OnInit {
         return this.playerId.trim() !== "";
     }
 
-    public mayGoToGamePage(): boolean {
+    public checkIfMayGoToGamePage(): void {
         if (this.isNameOk() && this.isIdOk()) {
-            return true;
+            this.goToGamePageAllowed = true;
+        } else {
+            this.goToGamePageAllowed = false;
         }
-        return false;
-    }
-
-    public fireEventMayGoToGamePage() {
-        let goToPage: boolean = this.mayGoToGamePage();
-        this._playerDataService.setPlayerData(this.playerName,
-            this.playerId);
-        this.mayGoToGamePageEvent.emit(goToPage);
     }
 
     ngOnInit() {

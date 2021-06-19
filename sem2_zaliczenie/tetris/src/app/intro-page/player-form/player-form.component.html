@@ -25,5 +25,12 @@
       />
     </fieldset>
     <br />
+    <a
+      routerLink="/gamePage"
+      routerLinkActive="active"
+      [ngClass]="{ 'button-link': true, 'disabled-link': !goToGamePageAllowed }"
+    >
+      I'm Your Huckellberry, and that's just my game!
+    </a>
   </div>
 </div>
