@@ -35,10 +35,18 @@ export class PlayerDataService {
         this._playerId = id;
     }
 
-    public isPlayerOk() {
+    public isPlayerOk(): boolean {
         let result = this._name.trim() !== "" && this._playerId.trim() !== "";
         console.log("is player OK", result);
         return result;
+    }
+
+    public authentication(): Promise<void | boolean> {
+        if (!this.isPlayerOk()) {
+            return new Promise((resolve, reject) => { resolve(false) });
+        } else {
+            return this.isTokenCorrect(this._playerId);
+        }
     }
 
     // prawidlowy token to 4 dowolne cyfry, np. "1234"

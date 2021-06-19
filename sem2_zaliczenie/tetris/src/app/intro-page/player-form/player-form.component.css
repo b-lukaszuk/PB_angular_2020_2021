@@ -34,12 +34,12 @@ input[type="text"]:valid {
   border-left: 0.5em solid #c9fec9;
 }
 
-input[type="email"] {
+input[type="password"] {
   height: 1.8em;
   font-size: 1.1em;
 }
 
-input[type="email"]:focus {
+input[type="password"]:focus {
   border: solid;
   border-width: 0.2em;
   border-color: #3584e4;
@@ -47,11 +47,11 @@ input[type="email"]:focus {
   transform: scale(1.025);
 }
 
-input[type="email"]:invalid {
+input[type="password"]:invalid {
   border-left: 0.5em solid #ffbeab;
 }
 
-input[type="email"]:valid {
+input[type="password"]:valid {
   border-left: 0.5em solid #c9fec9;
 }
 

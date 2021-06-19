@@ -43,14 +43,14 @@ export class PlayerFormComponent implements OnInit {
 
     public login() {
         this._playerDataService.setPlayerData(this.playerName, this.playerId);
-        this._playerDataService.isTokenCorrect(this.playerId)
+        this._playerDataService.authentication()
             .then((res) => {
                 if (res) {
                     // alert("login successful");
                     console.log("login successful");
                 } else {
                     // alert("login failed");
-                    console.log("login failed");
+                    console.log("authentication failed");
                 }
             })
     }

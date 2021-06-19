@@ -14,15 +14,19 @@ export class PlayerDataGuardGuard implements CanActivate {
 
     canActivate(
         route: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot): boolean {
+        state: RouterStateSnapshot): Promise<boolean> {
         // https://juristr.com/blog/2018/11/better-route-guard-redirects/#blocking-is-not-enough
-        if (this._playerDataService.isPlayerOk()) {
-            return true;
-        } else {
-            this._router.navigateByUrl("/introPage");
-            alert("Access denied. Please log in");
-            return false;
-        }
+        let result = this._playerDataService.authentication()
+            .then((res) => {
+                if (res) {
+                    return true;
+                } else {
+                    this._router.navigateByUrl("/introPage");
+                    alert("Authentication failed.");
+                    return false;
+                }
+            })
+        return result;
     }
 
 }
