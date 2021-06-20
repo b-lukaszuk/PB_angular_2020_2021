@@ -20,6 +20,7 @@ import { HighScoresService } from './high-scores.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HighScoresSortPipe } from './high-scores/high-scores-sort.pipe';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FilterByPlayerNamePipe } from './high-scores/filter-by-player-name.pipe';
 
 @NgModule({
     declarations: [
@@ -34,6 +35,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
         HighScoresComponent,
         HighScoresSortPipe,
         PageNotFoundComponent,
+        FilterByPlayerNamePipe,
     ],
     imports: [
         BrowserModule,

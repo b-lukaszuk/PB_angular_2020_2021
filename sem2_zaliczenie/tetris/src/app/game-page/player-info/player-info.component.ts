@@ -19,7 +19,6 @@ export class PlayerInfoComponent implements OnInit {
     }
 
     ngOnDestroy() {
-        this._playerDataService.setPlayerData("", "");
     }
 
 }

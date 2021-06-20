@@ -4,11 +4,12 @@ import {
     ViewChild,
 } from '@angular/core';
 import { TetrisCoreComponent } from 'ngx-tetris';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 import { HistoryItem } from './historyItem/historyItem';
 import { HistoryFilterPipe } from './history-filter.pipe';
 import { SortHistoryItemsPipe } from './sort-history-items.pipe';
+import { PlayerDataService } from '../player-data.service';
 
 @Component({
     selector: 'game-page',
@@ -16,7 +17,10 @@ import { SortHistoryItemsPipe } from './sort-history-items.pipe';
     styleUrls: ['./game-page.component.css'],
 })
 export class GamePageComponent implements OnInit {
-    constructor(private _activatedRoute: ActivatedRoute) { }
+
+    constructor(private _activatedRoute: ActivatedRoute,
+        private _router: Router,
+        private _playerDataService: PlayerDataService) { }
 
     //////////////
     // Podgladanie dziecka
@@ -99,7 +103,7 @@ export class GamePageComponent implements OnInit {
     }
 
     public onLineCleared() {
-        this.points += 1;
+        this.points += 100;
         this.addItemToHistory(
             new HistoryItem(
                 this.seconds,
@@ -111,8 +115,13 @@ export class GamePageComponent implements OnInit {
 
     public onGameOver() {
         this.stopTimer();
-        alert('Game over. Press OK to start again');
-        this.resetGame();
+        alert('Game over. Press OK to see high scores');
+        this._playerDataService.setPlayerData(
+            this._playerDataService.getPlayerName(),
+            this._playerDataService.getPlayerId(),
+            this.points);
+        console.log("game-page on game over", this._playerDataService.getPlayerData());
+        this._router.navigateByUrl("/highScores");
     }
 
     // timery za:

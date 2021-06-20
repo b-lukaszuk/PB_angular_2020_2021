@@ -21,18 +21,42 @@ export class PlayerDataService {
     });
     private _name: string = getFromLocalStorage("playerName", "");
     private _playerId: string = getFromLocalStorage("playerId", "");
+    private _playerScore: number = getFromLocalStorage("playerScore", 0);
+
+    public getPlayerName(): string {
+        return getFromLocalStorage("playerName", "");
+    }
+
+    public getPlayerScore(): number {
+        return getFromLocalStorage("playerScore", 0);
+    }
+
+    public getPlayerId(): string {
+        return getFromLocalStorage("playerId", "");
+    }
+
+    public refreshPlayerData(): void {
+        let curPlayerData = this.getPlayerData();
+        this._name = curPlayerData.playerName;
+        this._playerId = curPlayerData.playerId;
+        this._playerScore = curPlayerData.playerScore;
+    }
 
     public getPlayerData() {
         return {
-            'playerName': this._name,
-            'playerId': this._playerId
+            'playerName': getFromLocalStorage("playerName", ""),
+            'playerId': getFromLocalStorage("playerId", ""),
+            'playerScore': getFromLocalStorage("playerScore", 0)
         };
     }
 
-    public setPlayerData(name: string, id: string) {
-        pushDictToLocalStorage({ "playerName": name, "playerId": id });
-        this._name = name;
-        this._playerId = id;
+    public setPlayerData(name: string = "", id: string = "", score: number = 0) {
+        pushDictToLocalStorage({
+            "playerName": name,
+            "playerId": id,
+            "playerScore": score
+        });
+        console.log("setting player data", this.getPlayerData());
     }
 
     public isPlayerOk(): boolean {
@@ -42,6 +66,7 @@ export class PlayerDataService {
     }
 
     public authentication(): Promise<void | boolean> {
+        this.refreshPlayerData();
         if (!this.isPlayerOk()) {
             return new Promise((resolve, reject) => { resolve(false) });
         } else {

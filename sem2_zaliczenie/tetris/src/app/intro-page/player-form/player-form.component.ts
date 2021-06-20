@@ -42,7 +42,8 @@ export class PlayerFormComponent implements OnInit {
     }
 
     public login() {
-        this._playerDataService.setPlayerData(this.playerName, this.playerId);
+        this._playerDataService.setPlayerData(this.playerName, this.playerId, 0);
+        console.log("login", this._playerDataService.getPlayerData());
         this._playerDataService.authentication()
             .then((res) => {
                 if (res) {
