@@ -11,7 +11,6 @@ export class FilterByPlayerNamePipe implements PipeTransform {
         playerName: string,
         active: boolean
     ): IHighScore[] {
-        console.log('filtering by name', playerName);
         if (!active) {
             return highScores;
         } else {
