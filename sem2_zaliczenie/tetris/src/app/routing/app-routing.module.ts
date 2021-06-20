@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { GamePageComponent } from './game-page/game-page.component';
-import { IntroPageComponent } from './intro-page/intro-page.component';
-import { HighScoresComponent } from './high-scores/high-scores.component';
-import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
-import { PlayerDataGuardGuard } from './player-data-guard.guard';
+import { GamePageComponent } from '../game-page/game-page.component';
+import { IntroPageComponent } from '../intro-page/intro-page.component';
+import { HighScoresComponent } from '../high-scores/high-scores.component';
+import { PageNotFoundComponent } from "../page-not-found/page-not-found.component";
+import { PlayerDataGuardGuard } from '../guards/player-data-guard.guard';
 
 const routes: Routes = [
     { path: '', redirectTo: 'introPage/normal', pathMatch: 'full' },
