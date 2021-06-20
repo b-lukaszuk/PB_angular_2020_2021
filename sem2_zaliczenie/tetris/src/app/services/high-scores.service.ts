@@ -23,11 +23,11 @@ export class HighScoresService {
         });
     }
 
-    public pushToHighScores(
-        newScore: IHighScore
+    public pushToHighScores(newScore: IHighScore
     ): Promise<Object | IHighScore[]> {
         return this._http
-            .post(this._scoresUrl, newScore, { headers: this._headersForScores })
+            .post(this._scoresUrl, newScore,
+                { headers: this._headersForScores })
             .toPromise()
             .then((data) => {
                 return data;
