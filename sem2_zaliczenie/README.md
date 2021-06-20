@@ -139,6 +139,8 @@ ng generate guard your-guard
 2. Auth code input
 - required
 - min length 5 chars?
+**Tu chyba wkradl sie maly blad.** W wersji opcjonalnej jest uwierzytelnianie na serwerze, a tam token to dowolny numer 4 cyfrowy.
+Min length powinno wiec wynosic >= 4 chars
 3. Color selection
 - with initial value
 - upon change make some element either colored or black&white
