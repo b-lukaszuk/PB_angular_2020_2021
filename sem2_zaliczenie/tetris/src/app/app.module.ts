@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms'; // do dzialania (ngForms, ngModel)
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from "@angular/forms";
 
 import { TetrisCoreModule } from 'ngx-tetris';
 import { AuthorsInfoComponent } from './authors-info/authors-info.component';
@@ -44,6 +45,7 @@ import { FilterByPlayerNamePipe } from './high-scores/filter-by-player-name.pipe
         AppRoutingModule,
         HttpClientModule,
         NgbModule,
+        ReactiveFormsModule,
     ],
     providers: [
         PlayerDataService,
