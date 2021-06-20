@@ -11,7 +11,6 @@ export class HighScoresService {
     private _scoresUrl: string = "http://tetris.chrum.it/scores";
     private _headersForScores: HttpHeaders = new HttpHeaders({
         "Accept": "application/json",
-        'Content-Type': 'application/json',
 
     });
 
@@ -24,9 +23,10 @@ export class HighScoresService {
             });
     }
 
-    public pushToHighScores(newScore: IHighScore): Observable<IHighScore[]> {
-        console.log("high-score service pushing to server", newScore);
-        return this._http.post<IHighScore[]>(this._scoresUrl, newScore,
-            { headers: this._headersForScores });
+    public pushToHighScores(newScore: IHighScore): Promise<Object | IHighScore[]> {
+        return this._http.post(this._scoresUrl, newScore,
+            { headers: this._headersForScores })
+            .toPromise()
+            .then((data) => { return data; });
     }
 }

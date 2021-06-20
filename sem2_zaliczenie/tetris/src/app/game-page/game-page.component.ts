@@ -103,7 +103,7 @@ export class GamePageComponent implements OnInit {
     }
 
     public onLineCleared() {
-        this.points += 100;
+        this.points += 1;
         this.addItemToHistory(
             new HistoryItem(
                 this.seconds,

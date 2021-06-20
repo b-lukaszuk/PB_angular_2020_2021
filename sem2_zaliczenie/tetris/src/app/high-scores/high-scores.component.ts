@@ -18,7 +18,7 @@ export class HighScoresComponent implements OnInit {
     public highScores: IHighScore[] = [];
     public playerName: string = "";
     public playerScore: number = 0;
-    public intervalId: any;
+    public intervalId: any = 0;
 
     public sortAsc: boolean = false;
     public applyFilterName = false;
@@ -29,6 +29,11 @@ export class HighScoresComponent implements OnInit {
 
     public toggleFilterByName() {
         this.applyFilterName = !this.applyFilterName;
+    }
+
+    public getHighScoresFromServer() {
+        this._highScoresService.getHighScores()
+            .subscribe((data) => { this.highScores = data });
     }
 
     ngOnInit(): void {
@@ -42,17 +47,20 @@ export class HighScoresComponent implements OnInit {
                     "name": this.playerName,
                     "score": this.playerScore
                 })
-                .subscribe((data) => { console.log(data); });
-
         }
+
+        this.getHighScoresFromServer();
+
         this.intervalId = setInterval(() => {
             console.log("refreshing high scores list");
-            this._highScoresService.getHighScores()
-                .subscribe((data) => { this.highScores = data });
+            this.getHighScoresFromServer();
         }, 30000);
+
     }
 
     ngOnDestroy() {
-        clearInterval(this.intervalId);
+        if (this.intervalId !== 0) {
+            clearInterval(this.intervalId);
+        }
     }
 }
