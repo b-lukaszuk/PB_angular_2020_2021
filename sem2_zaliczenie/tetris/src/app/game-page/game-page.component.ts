@@ -116,6 +116,7 @@ export class GamePageComponent implements OnInit {
             this.points
         );
         this._router.navigateByUrl('/highScores');
+        // better way: _router.navigate([string with slash, params]) -> read more about it
     }
 
     // timery za:
@@ -154,5 +155,6 @@ export class GamePageComponent implements OnInit {
         this.time = this.secsToMins(this.seconds);
         this.history = [];
         this.colorPalette = this._activatedRoute.snapshot.paramMap.get('color');
+        // better option: _activatedRoute.params (obsevable), subscribe to it and always be notified about any changes
     }
 }

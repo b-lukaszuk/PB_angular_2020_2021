@@ -38,6 +38,9 @@
     </select>
     <br />
     <br />
+    <!-- move the logic from routerlink to login() method -->
+    <!-- possible performance issues, not sure what happens first -->
+    <!-- incorrect player data validation, duplication of code, single responsibility -->
     <a
       routerLink="/gamePage/{{ colorPalette }}"
       routerLinkActive="active"
