@@ -2,8 +2,7 @@
   <table>
     <tr>
       <td>
-        <player-info>
-        </player-info>
+        <player-info> </player-info>
         <a
           routerLink="/introPage"
           routerLinkActive="active"
@@ -18,7 +17,9 @@
           #game
           (lineCleared)="onLineCleared()"
           (gameOver)="onGameOver()"
-	  class="{{colorPalette === 'high-contrast' ? 'black-and-white' : ''}}"
+          class="{{
+            colorPalette === 'high-contrast' ? 'black-and-white' : ''
+          }}"
         ></tetris-core>
       </td>
       <td>

@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { PlayerDataService } from 'src/app/player-data.service';
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { PlayerDataService } from '../../services/player-data.service';
 
 @Component({
     selector: 'player-form',
@@ -8,13 +9,16 @@ import { Router, ActivatedRoute } from "@angular/router";
     styleUrls: ['./player-form.component.css'],
 })
 export class PlayerFormComponent implements OnInit {
-    constructor(private _playerDataService: PlayerDataService,
-        private _router: Router, private _activatedRoute: ActivatedRoute) { }
+    constructor(
+        private _playerDataService: PlayerDataService,
+        private _router: Router,
+        private _activatedRoute: ActivatedRoute
+    ) { }
 
-    public colorPalettes = ["normal", "high-contrast"];
-    public colorPalette = "";
+    public colorPalettes = ['normal', 'high-contrast'];
+    public colorPalette = '';
     public colorOnSelect() {
-        this._router.navigate(["/introPage", this.colorPalette]);
+        this._router.navigate(['/introPage', this.colorPalette]);
     }
 
     // dane uzytkownika
@@ -43,17 +47,16 @@ export class PlayerFormComponent implements OnInit {
 
     public login() {
         this._playerDataService.setPlayerData(this.playerName, this.playerId, 0);
-        console.log("login", this._playerDataService.getPlayerData());
-        this._playerDataService.authentication()
-            .then((res) => {
-                if (res) {
-                    // alert("login successful");
-                    console.log("login successful");
-                } else {
-                    // alert("login failed");
-                    console.log("authentication failed");
-                }
-            })
+        console.log('login', this._playerDataService.getPlayerData());
+        this._playerDataService.authentication().then((res) => {
+            if (res) {
+                // alert("login successful");
+                console.log('login successful');
+            } else {
+                // alert("login failed");
+                console.log('authentication failed');
+            }
+        });
     }
 
     public checkIfMayGoToGamePage(): void {
@@ -65,8 +68,8 @@ export class PlayerFormComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.colorPalette = this._activatedRoute.snapshot.paramMap.get("color");
-        this._playerDataService.setPlayerData("", "");
+        this.colorPalette = this._activatedRoute.snapshot.paramMap.get('color');
+        this._playerDataService.setPlayerData('', '');
     }
 
     ngOnDestroy() {

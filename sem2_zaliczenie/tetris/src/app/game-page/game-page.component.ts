@@ -1,15 +1,11 @@
-import {
-    Component,
-    OnInit,
-    ViewChild,
-} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TetrisCoreComponent } from 'ngx-tetris';
-import { ActivatedRoute, Router } from "@angular/router";
 
 import { HistoryItem } from './historyItem/historyItem';
 import { HistoryFilterPipe } from './history-filter.pipe';
 import { SortHistoryItemsPipe } from './sort-history-items.pipe';
-import { PlayerDataService } from '../player-data.service';
+import { PlayerDataService } from '../services/player-data.service';
 
 @Component({
     selector: 'game-page',
@@ -17,10 +13,11 @@ import { PlayerDataService } from '../player-data.service';
     styleUrls: ['./game-page.component.css'],
 })
 export class GamePageComponent implements OnInit {
-
-    constructor(private _activatedRoute: ActivatedRoute,
+    constructor(
+        private _activatedRoute: ActivatedRoute,
         private _router: Router,
-        private _playerDataService: PlayerDataService) { }
+        private _playerDataService: PlayerDataService
+    ) { }
 
     //////////////
     // Podgladanie dziecka
@@ -28,8 +25,7 @@ export class GamePageComponent implements OnInit {
     @ViewChild(TetrisCoreComponent)
     private _tetris: TetrisCoreComponent;
 
-
-    public colorPalette: string = "normal";
+    public colorPalette: string = 'normal';
 
     //////////////
     // Pola w klasie (do zast ktore public, ktore private)
@@ -119,9 +115,13 @@ export class GamePageComponent implements OnInit {
         this._playerDataService.setPlayerData(
             this._playerDataService.getPlayerName(),
             this._playerDataService.getPlayerId(),
-            this.points);
-        console.log("game-page on game over", this._playerDataService.getPlayerData());
-        this._router.navigateByUrl("/highScores");
+            this.points
+        );
+        console.log(
+            'game-page on game over',
+            this._playerDataService.getPlayerData()
+        );
+        this._router.navigateByUrl('/highScores');
     }
 
     // timery za:
@@ -130,8 +130,7 @@ export class GamePageComponent implements OnInit {
         let mins: number = Math.floor(seconds / 60);
         let secs: number = seconds % 60;
         return (
-            mins.toString().padStart(2, '0') + ':' +
-            secs.toString().padStart(2, '0')
+            mins.toString().padStart(2, '0') + ':' + secs.toString().padStart(2, '0')
         );
     }
 
@@ -160,7 +159,6 @@ export class GamePageComponent implements OnInit {
         this.seconds = 0;
         this.time = this.secsToMins(this.seconds);
         this.history = [];
-        this.colorPalette = this._activatedRoute.snapshot.paramMap.get("color");
+        this.colorPalette = this._activatedRoute.snapshot.paramMap.get('color');
     }
-
 }

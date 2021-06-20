@@ -22,8 +22,4 @@ function isKeyInLocalStorage(key: string): boolean {
     return isIn;
 }
 
-export {
-    getFromLocalStorage,
-    pushDictToLocalStorage,
-    isKeyInLocalStorage
-};
+export { getFromLocalStorage, pushDictToLocalStorage, isKeyInLocalStorage };

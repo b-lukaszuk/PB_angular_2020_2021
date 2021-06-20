@@ -8,9 +8,8 @@ describe('IntroPageComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [IntroPageComponent]
-        })
-            .compileComponents();
+            declarations: [IntroPageComponent],
+        }).compileComponents();
     });
 
     beforeEach(() => {

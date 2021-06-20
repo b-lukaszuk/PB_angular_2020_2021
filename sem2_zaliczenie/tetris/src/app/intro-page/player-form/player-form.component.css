@@ -1,12 +1,12 @@
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
 }
 
 .centered-div {
-    text-align: center;
+  text-align: center;
 }
 
 legend {
@@ -60,24 +60,24 @@ p {
 }
 
 .button-link {
-    background-color: #008CBA;
-    border: none;
-    border-radius: 0.4em;
-    color: white;
-    padding: 0.4em 0.8em;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1em;
-    font-weight: bold;
+  background-color: #008cba;
+  border: none;
+  border-radius: 0.4em;
+  color: white;
+  padding: 0.4em 0.8em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 .button-link:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .disabled-link {
-    background-color: lightgray;
-    cursor: auto;
-    pointer-events: none;
+  background-color: lightgray;
+  cursor: auto;
+  pointer-events: none;
 }

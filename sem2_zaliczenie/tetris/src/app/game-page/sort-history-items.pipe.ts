@@ -1,13 +1,14 @@
-import { Pipe, PipeTransform } from '@angular/core';
 import { HistoryItem } from './historyItem/historyItem';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-    name: 'sortHistoryItems'
+    name: 'sortHistoryItems',
 })
 export class SortHistoryItemsPipe implements PipeTransform {
-
-    transform(historyItems: Array<HistoryItem>,
-        ascending: boolean = true): Array<HistoryItem> {
+    transform(
+        historyItems: Array<HistoryItem>,
+        ascending: boolean = true
+    ): Array<HistoryItem> {
         if (ascending) {
             historyItems = historyItems.sort(
                 (item1: HistoryItem, item2: HistoryItem) => {
@@ -23,5 +24,4 @@ export class SortHistoryItemsPipe implements PipeTransform {
         }
         return historyItems;
     }
-
 }
