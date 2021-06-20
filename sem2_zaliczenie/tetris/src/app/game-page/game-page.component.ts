@@ -3,8 +3,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { TetrisCoreComponent } from 'ngx-tetris';
 
 import { HistoryItem } from './historyItem/historyItem';
-import { HistoryFilterPipe } from './history-filter.pipe';
-import { SortHistoryItemsPipe } from './sort-history-items.pipe';
 import { PlayerDataService } from '../services/player-data.service';
 
 @Component({
