@@ -115,10 +115,6 @@ export class GamePageComponent implements OnInit {
             this._playerDataService.getPlayerId(),
             this.points
         );
-        console.log(
-            'game-page on game over',
-            this._playerDataService.getPlayerData()
-        );
         this._router.navigateByUrl('/highScores');
     }
 

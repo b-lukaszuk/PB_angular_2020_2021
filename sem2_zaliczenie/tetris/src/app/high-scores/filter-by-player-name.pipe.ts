@@ -16,7 +16,6 @@ export class FilterByPlayerNamePipe implements PipeTransform {
             return highScores;
         } else {
             let result = highScores.filter((score) => {
-                console.log('testing name', score.name);
                 return score.name === playerName;
             });
             return result;

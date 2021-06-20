@@ -73,7 +73,6 @@ export class PlayerDataService {
             })
             .toPromise()
             .then((data) => {
-                console.log('service', data['success']);
                 return data['success'];
             })
             .catch((err) => {

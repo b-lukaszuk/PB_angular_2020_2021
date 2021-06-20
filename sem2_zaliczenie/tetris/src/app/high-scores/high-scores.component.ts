@@ -44,11 +44,6 @@ export class HighScoresComponent implements OnInit {
         this.playerScore = this._playerDataService.getPlayerScore();
 
         if (this.playerName.trim() !== '' && this.playerScore !== 0) {
-            console.log(
-                'high-scores.comp pushing',
-                this.playerName,
-                this.playerScore
-            );
             this._highScoresService.pushToHighScores({
                 name: this.playerName,
                 score: this.playerScore,
