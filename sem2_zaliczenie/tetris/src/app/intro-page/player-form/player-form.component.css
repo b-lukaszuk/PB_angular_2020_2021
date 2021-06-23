@@ -5,6 +5,16 @@
   font-size: 1.5em;
 }
 
+.normal {
+  background: lightblue;
+  padding: 0.2em;
+}
+
+.high-contrast {
+  background: gray;
+  padding: 0.2em;
+}
+
 .centered-div {
   text-align: center;
 }
@@ -59,6 +69,29 @@ p {
   font-size: 1.2em;
 }
 
+button {
+  border: black 0.1em solid;
+  background-color: #008cba;
+  border-radius: 0.4em;
+  color: white;
+  padding: 0.4em 0.8em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #3566e4;
+}
+
+button:disabled {
+  background-color: lightgray;
+  cursor: not-allowed;
+}
+
 .button-link {
   background-color: #008cba;
   border: none;
@@ -76,8 +109,4 @@ p {
   cursor: pointer;
 }
 
-.disabled-link {
-  background-color: lightgray;
-  cursor: auto;
-  pointer-events: none;
-}
+

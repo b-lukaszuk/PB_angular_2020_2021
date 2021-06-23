@@ -1,59 +1,51 @@
 <div class="container">
   <div class="centered-div">
-    <h2>Enter Your data below and play tetris</h2>
-    <fieldset>
-      <legend>Player's Name</legend>
-      <input
-        [ngModel]="playerName"
-        (ngModelChange)="setPlayerName($event)"
-        maxLength="18"
-        placeholder="Enter Your Name..."
-        type="text"
-        pattern="^[a-zA-Z ,.'-]+$"
-        required
-      />
-    </fieldset>
-    <fieldset>
-      <legend>Student's ID</legend>
-      <input
-        [ngModel]="playerId"
-        (ngModelChange)="setPlayerId($event)"
-        maxLength="18"
-        placeholder="Enter Your student's ID..."
-        type="password"
-        required
-      />
-    </fieldset>
-    <br />
-    <label for="colorPalettes"> color palette: </label>
-    <select
-      name="colorPalettes"
-      id="colorPalettes"
-      [(ngModel)]="colorPalette"
-      (change)="colorOnSelect()"
+    <form
+      [formGroup]="playerForm"
+      (ngSubmit)="login()"
+      [ngClass]="playerForm.value['colorPalette']"
     >
-      <option *ngFor="let color of colorPalettes" [value]="color">
-        {{ color }}
-      </option>
-    </select>
-    <br />
-    <br />
-    <!-- move the logic from routerlink to login() method -->
-    <!-- possible performance issues, not sure what happens first -->
-    <!-- incorrect player data validation, duplication of code, single responsibility -->
-    <!-- bedzie zmienione przy okazji wprowadzenia Reactive Forms -->
-    <a
-      routerLink="/gamePage/{{ colorPalette }}"
-      routerLinkActive="active"
-      [ngClass]="{
-        'button-link': true,
-        'disabled-link': !goToGamePageBtnActive
-      }"
-      (click)="login()"
-    >
-      I'm Your Huckellberry, and that's just my game!
-    </a>
-    <br />
+      <h2>Enter Your data below and play tetris</h2>
+      <fieldset>
+        <legend>Player's Name</legend>
+        <input
+          formControlName="playerName"
+          maxLength="18"
+          placeholder="Enter Your Name..."
+          type="text"
+          pattern="^[a-zA-Z ,.'-]{5,}$"
+          required
+        />
+      </fieldset>
+      <fieldset>
+        <legend>Student's ID</legend>
+        <input
+          formControlName="playerId"
+          maxLength="18"
+          placeholder="Enter Your student's ID..."
+          type="password"
+          pattern="^.{4,}$"
+          required
+        />
+      </fieldset>
+      <br />
+      <label for="colorPalettes"> color palette: </label>
+      <select
+        name="colorPalettes"
+        id="colorPalettes"
+        formControlName="colorPalette"
+        (change)="colorOnSelect()"
+      >
+        <option *ngFor="let color of colorPalettes" [ngValue]="color">
+          {{ color }}
+        </option>
+      </select>
+      <br />
+      <br />
+      <button type="submit" [disabled]="!playerForm.valid">
+        I'm Your Huckellberry, and that's just my game!
+      </button>
+    </form>
     <br />
     <a routerLink="/highScores" routerLinkActive="active" class="button-link">
       See High Scores

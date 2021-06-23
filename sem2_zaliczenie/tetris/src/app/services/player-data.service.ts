@@ -42,25 +42,14 @@ export class PlayerDataService {
 
     public setPlayerData(name: string = '', id: string = '', score: number = 0) {
         pushDictToLocalStorage({
-            playerName: name.trim(),
-            playerId: id.trim(),
+            playerName: name,
+            playerId: id,
             playerScore: score,
         });
     }
 
-    public isPlayerOk(): boolean {
-        let result = this.getPlayerName() !== '' && this.getPlayerId() !== '';
-        return result;
-    }
-
     public authentication(): Promise<void | boolean> {
-        if (!this.isPlayerOk()) {
-            return new Promise((resolve, reject) => {
-                resolve(false);
-            });
-        } else {
-            return this.isTokenCorrect(this.getPlayerId());
-        }
+        return this.isTokenCorrect(this.getPlayerId());
     }
 
     // prawidlowy token to 4 dowolne cyfry, np. "1234"

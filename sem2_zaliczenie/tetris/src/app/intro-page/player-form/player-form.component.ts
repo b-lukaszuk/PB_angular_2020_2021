@@ -1,5 +1,6 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms'
 
 import { PlayerDataService } from '../../services/player-data.service';
 
@@ -15,63 +16,61 @@ export class PlayerFormComponent implements OnInit {
         private _activatedRoute: ActivatedRoute
     ) { }
 
+
+    public playerForm: FormGroup;
+
     public colorPalettes = ['normal', 'high-contrast'];
-    public colorPalette = '';
     public colorOnSelect() {
-        this._router.navigate(['/introPage', this.colorPalette]);
-    }
-
-    // dane uzytkownika
-    public playerName: string = '';
-    public playerId: string = '';
-
-    public goToGamePageBtnActive: boolean = false;
-
-    public setPlayerName(name: string): void {
-        this.playerName = name;
-        this.checkIfMayGoToGamePage();
-    }
-
-    public setPlayerId(id: string): void {
-        this.playerId = id;
-        this.checkIfMayGoToGamePage();
-    }
-
-    public isNameOk(): boolean {
-        return this.playerName.trim() !== '';
-    }
-
-    public isIdOk(): boolean {
-        return this.playerId.trim() !== '';
+        this._router.navigate(['/introPage',
+            this.playerForm.value["colorPalette"]]);
     }
 
     public login() {
-        this._playerDataService.setPlayerData(this.playerName, this.playerId, 0);
+        this._playerDataService.setPlayerData(
+            this.playerForm.value["playerName"],
+            this.playerForm.value["playerId"],
+            0
+        );
         this._playerDataService.authentication().then((res) => {
             if (res) {
-                // alert("login successful");
+                // rekomendacja Chrystiana
+                this._router.navigate(
+                    [`/gamePage/${this.playerForm.value["colorPalette"]}`]);
                 console.log('login successful');
             } else {
-                // alert("login failed");
-                console.log('authentication failed');
+                alert("login failed");
             }
         });
     }
 
-    public checkIfMayGoToGamePage(): void {
-        if (this.isNameOk() && this.isIdOk()) {
-            this.goToGamePageBtnActive = true;
-        } else {
-            this.goToGamePageBtnActive = false;
-        }
-    }
-
     ngOnInit() {
-        this.colorPalette = this._activatedRoute.snapshot.paramMap.get('color');
-        this._playerDataService.setPlayerData('', '');
+        this.playerForm = new FormGroup(
+            {
+                playerName: new FormControl(
+                    this._playerDataService.getPlayerName(),
+                    [Validators.required,
+                    Validators.minLength(5)]),
+                playerId: new FormControl("", [Validators.required,
+                Validators.minLength(4)]),
+                colorPalette: new FormControl(""),
+            }
+        );
+
+        this._activatedRoute.params.subscribe(params => {
+            this.playerForm.patchValue({ "colorPalette": params["color"] });
+        }); // rekomendacja Chrystiana
+
+
+        this._playerDataService.setPlayerData(
+            this.playerForm.value["playerName"],
+            this.playerForm.value["playerId"]
+        );
     }
 
     ngOnDestroy() {
-        this._playerDataService.setPlayerData(this.playerName, this.playerId);
+        this._playerDataService.setPlayerData(
+            this.playerForm.value["playerName"],
+            this.playerForm.value["playerId"]
+        );
     }
 }
