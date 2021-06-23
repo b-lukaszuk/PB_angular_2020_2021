@@ -115,8 +115,7 @@ export class GamePageComponent implements OnInit {
             this._playerDataService.getPlayerId(),
             this.points
         );
-        this._router.navigateByUrl('/highScores');
-        // better way: _router.navigate([string with slash, params]) -> read more about it
+        this._router.navigate(['/highScores']); // rekomendacja Chrystiana
     }
 
     // timery za:
@@ -154,7 +153,10 @@ export class GamePageComponent implements OnInit {
         this.seconds = 0;
         this.time = this.secsToMins(this.seconds);
         this.history = [];
-        this.colorPalette = this._activatedRoute.snapshot.paramMap.get('color');
-        // better option: _activatedRoute.params (obsevable), subscribe to it and always be notified about any changes
+        this._activatedRoute.params.subscribe(params => {
+            this.colorPalette = params['color'];
+        }); // rekomendacja Chrystiana
+        // better option: _activatedRoute.params (obsevable),
+        // subscribe to it and always be notified about any changes
     }
 }
