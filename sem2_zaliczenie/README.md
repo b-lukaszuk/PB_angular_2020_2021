@@ -21,6 +21,8 @@
 
 Projekt zapoczatkowany jako praca domowa na zaliczenie semestru 1 z przedmiotu Angular od Podstaw na podyplomowce PB JS developer (2020/2021)
 
+**Deployed version ->** [Here](https://b-lukaszuk.github.io/tetris/)
+
 ## Wymagania 1
 
 [Powrot do spisu tresci](#spis-tresci)
