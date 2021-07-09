@@ -99,7 +99,7 @@ ng generate guard your-guard
 
 ### Reading and displaying highscores
 
-1. Read current highscores (GET /scores) 
+1. Read current highscores (GET /scores)
 - reading as text/html - default
 - reading as json - add accept: application/json header
 2. Display highscores (component):
@@ -110,9 +110,9 @@ ng generate guard your-guard
 
 ### Authentication input (optional?)
 
-(Intro page form) 
+(Intro page form)
 
-1. Add token input ( student ID ) 
+1. Add token input ( student ID - any 4-digit number)
 - remove email from the form
 - add token input field (text entry, just required, no special validations)
 2. Upon form submission validate entered token (POST/check-token)
@@ -122,10 +122,10 @@ ng generate guard your-guard
 1. On game finished
 - submit player score and name (POST /scores)
 - sign with auth token (auth-token header)
-2. Display my scores list (component): 
+2. Display my scores list (component):
 - filter data (only my entries)
 - sorting by score asc/desc
-3. Update score lists every 30 seconds
+3. Update score lists every 30 seconds (removed from deployed version)
 
 ## Wymagania 5
 
